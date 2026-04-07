@@ -19,14 +19,13 @@ html, body {
 body {
     overflow-x: hidden;
     min-height: 100%;
-    background-color: #000000;
+    background-color: #050505;
     background-image:
-        radial-gradient(circle at center, #101010 0%, #000000 55%),
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: auto, 24px 24px, 24px 24px;
-    background-position: center center, 0 0, 0 0;
-    background-repeat: no-repeat, repeat, repeat;
+    background-size: 24px 24px;
+    background-position: 0 0, 0 0;
+    background-repeat: repeat;
     color: #e8f7ff;
     position: relative;
 }
@@ -38,27 +37,42 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(7rem, 14vw, 14rem);
-    color: #1a1a1a;
-    opacity: 0.05;
+    font-family: Inter, Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(6rem, 12vw, 12rem);
+    color: #0a0a0a;
+    opacity: 0.04;
     transform: rotate(-15deg);
-    letter-spacing: 0.32em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
-    z-index: 0;
+    z-index: -2;
 }
 
 body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 242, 255, 0.15);
+    box-shadow: 0 0 28px rgba(0, 242, 255, 0.12);
     pointer-events: none;
-    background: radial-gradient(circle at 50% 24%, rgba(0, 242, 255, 0.12), transparent 24%);
-    filter: blur(60px);
-    opacity: 0.7;
-    z-index: 0;
+    z-index: -1;
+    animation: scanner-move 9s linear infinite;
+    will-change: transform;
+}
+
+@keyframes scanner-move {
+    0% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(calc(100vh + 4px));
+    }
 }
 
 main,
