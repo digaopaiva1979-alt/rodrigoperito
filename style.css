@@ -27,64 +27,29 @@ body {
 .terminal-background {
     position: fixed;
     inset: 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 7vh 3vw;
     pointer-events: none;
     z-index: -3;
     overflow: hidden;
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
 }
 
-.terminal-background .hex-column {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.4rem;
-    transform: translateY(-120%);
-    animation: rain-column 42s linear infinite;
-}
-
-.terminal-background .hex-column:nth-child(2) {
-    animation-duration: 48s;
-    animation-delay: -9s;
-}
-
-.terminal-background .hex-column:nth-child(3) {
-    animation-duration: 45s;
-    animation-delay: -18s;
-}
-
-.terminal-background .hex-column:nth-child(4) {
-    animation-duration: 50s;
-    animation-delay: -12s;
-}
-
-.terminal-background span {
-    display: block;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 0.78rem;
-    line-height: 1.4;
-    letter-spacing: 0.24em;
-    color: rgba(255, 255, 255, 0.03);
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-body::before {
+.terminal-background::before {
     content: "DATA VERITATIS";
-    position: fixed;
+    position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Inter, Arial, sans-serif;
     font-weight: 800;
-    font-size: clamp(6rem, 14vw, 14rem);
+    font-size: clamp(5rem, 11vw, 11rem);
     color: #0a0a0a;
     opacity: 0.03;
-    transform: rotate(-12deg);
+    transform: rotate(-8deg);
     letter-spacing: 0.28em;
     white-space: nowrap;
     pointer-events: none;
@@ -92,27 +57,86 @@ body::before {
     z-index: -2;
 }
 
-body::after {
+.terminal-background::after {
     content: "";
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 242, 255, 0.08) 35%, rgba(0, 242, 255, 0.1) 50%, rgba(0, 242, 255, 0.08) 65%, transparent 100%);
-    box-shadow: 0 0 28px rgba(0, 242, 255, 0.16);
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 242, 255, 0.08) 30%, rgba(0, 242, 255, 0.1) 50%, rgba(0, 242, 255, 0.08) 70%, transparent 100%);
+    box-shadow: 0 0 22px rgba(0, 242, 255, 0.18);
     pointer-events: none;
     z-index: -1;
     animation: scanner-line 10s linear infinite;
     will-change: transform;
 }
 
-@keyframes rain-column {
+.background-nodes {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.node {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size, 0.9rem);
+    height: var(--size, 0.9rem);
+    border-radius: 50%;
+    background: rgba(0, 242, 255, 0.08);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.08);
+    opacity: 0.35;
+    animation: float 18s ease-in-out infinite alternate, node-glow 10s linear infinite;
+    animation-delay: 0s, var(--delay);
+}
+
+.node::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 242, 255, 0.15);
+    border-radius: 50%;
+    opacity: 0.45;
+}
+
+.connection {
+    position: absolute;
+    height: 1px;
+    background: rgba(0, 242, 255, 0.12);
+    opacity: 0;
+    animation: connect 10s linear infinite;
+    animation-delay: var(--delay);
+    will-change: opacity;
+}
+
+@keyframes float {
     0% {
-        transform: translateY(-120%);
+        transform: translateY(0);
     }
     100% {
-        transform: translateY(120%);
+        transform: translateY(10px);
+    }
+}
+
+@keyframes node-glow {
+    0%, 80%, 100% {
+        opacity: 0.35;
+        box-shadow: 0 0 10px rgba(0, 242, 255, 0.08);
+    }
+    90% {
+        opacity: 0.95;
+        box-shadow: 0 0 24px rgba(0, 242, 255, 0.22);
+    }
+}
+
+@keyframes connect {
+    0%, 82%, 100% {
+        opacity: 0;
+    }
+    85%, 95% {
+        opacity: 0.4;
     }
 }
 
