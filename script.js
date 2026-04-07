@@ -1,132 +1,89 @@
-const canvas = document.getElementById('background-canvas') || document.createElement('canvas');
-if (!canvas.parentElement) {
-    canvas.id = 'background-canvas';
-    document.body.prepend(canvas);
-}
+const canvas = document.getElementById('background-canvas');
 const ctx = canvas.getContext('2d');
 
-const mouse = { x: null, y: null };
-const nodes = [];
-const nodeCount = 40;
-const maxConnectionDistance = 140;
-const scanner = { y: 0, speed: 0.95 };
+const hexChars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+const columns = [];
+const scanner = { y: 0, speed: 0.75, width: 2 };
+const columnCountTarget = 40;
+
+function randomHexGroup() {
+    return Array.from({ length: 4 }, () => hexChars[Math.floor(Math.random() * 16)] + hexChars[Math.floor(Math.random() * 16)]).join(' ');
+}
+
+function createColumns() {
+    columns.length = 0;
+    const columnSpacing = Math.max(100, window.innerWidth / columnCountTarget);
+    for (let i = 0; i < Math.ceil(window.innerWidth / columnSpacing) + 2; i += 1) {
+        const x = i * columnSpacing + columnSpacing / 2;
+        const speed = 0.25 + Math.random() * 0.18;
+        const offset = Math.random() * window.innerHeight;
+        const groupCount = Math.ceil(window.innerHeight / 42) + 4;
+        const values = Array.from({ length: groupCount }, randomHexGroup);
+        columns.push({ x, y: offset, speed, values, spacing: 42, opacity: 0.03 });
+    }
+}
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    createColumns();
 }
 
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-canvas.addEventListener('mousemove', (event) => {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-});
+function drawBackground() {
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'left';
+}
 
-canvas.addEventListener('mouseleave', () => {
-    mouse.x = null;
-    mouse.y = null;
-});
-
-class Node {
-    constructor() {
-        this.reset();
-    }
-
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.24;
-        this.vy = (Math.random() - 0.5) * 0.24;
-        this.size = Math.random() * 1.5 + 0.75;
-        this.baseOpacity = 0.04 + Math.random() * 0.05;
-        this.opacity = this.baseOpacity;
-        this.glow = 0;
-    }
-
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
-        if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
-
-        if (mouse.x !== null && mouse.y !== null) {
-            const dx = mouse.x - this.x;
-            const dy = mouse.y - this.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 140) {
-                this.vx += dx * 0.00035;
-                this.vy += dy * 0.00035;
-                this.opacity = Math.min(0.15, this.opacity + 0.02);
-            }
-        }
-
-        const scanDistance = Math.abs(this.y - scanner.y);
-        if (scanDistance < 14) {
-            this.glow = 1;
-            this.opacity = Math.min(0.15, this.opacity + 0.06);
-        }
-
-        this.glow = Math.max(0, this.glow - 0.04);
-        this.opacity = Math.max(this.baseOpacity, Math.min(0.15, this.opacity - 0.001));
-    }
-
-    draw() {
+function drawColumns() {
+    columns.forEach((column) => {
+        const softLineAlpha = 0.02;
         ctx.save();
-        if (this.glow > 0) {
-            ctx.shadowColor = '#00f2ff';
-            ctx.shadowBlur = 12 * this.glow;
-            ctx.globalAlpha = 0.18 + 0.32 * this.glow;
-        } else {
-            ctx.globalAlpha = this.opacity;
-        }
-        ctx.fillStyle = '#00f2ff';
+        ctx.strokeStyle = `rgba(0, 242, 255, ${softLineAlpha})`;
+        ctx.lineWidth = 0.6;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(column.x, 0);
+        ctx.lineTo(column.x, canvas.height);
+        ctx.stroke();
         ctx.restore();
-    }
-}
 
-function createNodes() {
-    nodes.length = 0;
-    for (let i = 0; i < nodeCount; i++) {
-        nodes.push(new Node());
-    }
-}
-
-function drawConnections() {
-    ctx.save();
-    ctx.strokeStyle = '#00f2ff';
-    ctx.lineWidth = 0.7;
-    for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-            const a = nodes[i];
-            const b = nodes[j];
-            const dx = a.x - b.x;
-            const dy = a.y - b.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < maxConnectionDistance) {
-                ctx.globalAlpha = 0.05 * (1 - distance / maxConnectionDistance);
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
+        for (let index = 0; index < column.values.length; index += 1) {
+            const value = column.values[index];
+            const y = (index * column.spacing + column.y) % (canvas.height + column.spacing) - column.spacing;
+            const scanDistance = Math.abs(y - scanner.y);
+            const isScanned = scanDistance < 18;
+            ctx.fillStyle = isScanned ? 'rgba(0, 242, 255, 0.25)' : 'rgba(0, 242, 255, 0.03)';
+            if (isScanned) {
+                ctx.save();
+                ctx.shadowColor = 'rgba(0, 242, 255, 0.35)';
+                ctx.shadowBlur = 12;
+                ctx.fillText(value, column.x, y);
+                ctx.restore();
+            } else {
+                ctx.fillText(value, column.x, y);
             }
         }
-    }
-    ctx.restore();
+
+        column.y += column.speed;
+        if (column.y > column.spacing) {
+            column.y -= column.spacing;
+            column.values.shift();
+            column.values.push(randomHexGroup());
+        }
+    });
 }
 
 function drawScanner() {
     ctx.save();
-    ctx.strokeStyle = '#00f2ff';
-    ctx.lineWidth = 1.4;
-    ctx.globalAlpha = 0.12;
+    ctx.strokeStyle = 'rgba(0, 242, 255, 0.1)';
+    ctx.lineWidth = scanner.width;
     ctx.shadowColor = 'rgba(0, 242, 255, 0.18)';
-    ctx.shadowBlur = 16;
+    ctx.shadowBlur = 18;
     ctx.beginPath();
     ctx.moveTo(0, scanner.y);
     ctx.lineTo(canvas.width, scanner.y);
@@ -135,26 +92,15 @@ function drawScanner() {
 }
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#050505';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    drawConnections();
-
-    nodes.forEach((node) => {
-        node.update();
-        node.draw();
-    });
-
+    drawBackground();
+    drawColumns();
     drawScanner();
 
     scanner.y += scanner.speed;
-    if (scanner.y > canvas.height + 10) {
-        scanner.y = -10;
+    if (scanner.y > canvas.height + 14) {
+        scanner.y = -14;
     }
-
     requestAnimationFrame(animate);
 }
 
-createNodes();
 animate();

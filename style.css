@@ -9,7 +9,7 @@
     color-scheme: dark;
     font-family: Inter, Arial, sans-serif;
     color: #e8f7ff;
-    background-color: #050505;
+    background-color: #000000;
 }
 
 html, body {
@@ -19,9 +19,28 @@ html, body {
 body {
     overflow-x: hidden;
     min-height: 100%;
-    background-color: #050505;
+    background-color: #000000;
     color: #e8f7ff;
     position: relative;
+}
+
+body::after {
+    content: 'DATA VERITATIS';
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 242, 255, 0.05);
+    font-size: clamp(140px, 12vw, 220px);
+    font-weight: 900;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    user-select: none;
 }
 
 #background-canvas {
