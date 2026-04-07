@@ -61,16 +61,26 @@ body::after {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-8deg);
-    font-size: clamp(120px, 12vw, 220px);
+    transform: translate(-50%, -50%) rotate(-6deg);
+    font-size: clamp(90px, 10vw, 160px);
     font-weight: 900;
     letter-spacing: 0.35em;
-    color: rgba(255, 255, 255, 0.08);
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.08);
+    color: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
     mix-blend-mode: screen;
     pointer-events: none;
     user-select: none;
     z-index: -1;
+    white-space: nowrap;
+    max-width: 100vw;
+}
+
+@media (max-width: 720px) {
+    body::after {
+        font-size: clamp(64px, 14vw, 110px);
+        transform: translate(-50%, -50%) rotate(-4deg);
+        opacity: 0.08;
+    }
 }
 
 .container {
