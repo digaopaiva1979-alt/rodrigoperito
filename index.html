@@ -10,28 +10,28 @@
 
 <canvas id="background-canvas"></canvas>
 
-<main>
+<main role="main">
 
     <!-- HERO -->
-    <header class="hero">
+    <header class="hero" role="banner">
         <div class="hero-inner container">
             
             <div class="hero-copy">
                 <h1>RODRIGO A. PAIVA</h1>
                 
-                <h2>Perito Judicial (TJSP) | Computação Forense e Evidências Digitais</h2>
+                <h2>Perito Judicial do Tribunal de Justiça de São Paulo</h2>
                 
                 <p class="hero-tagline">
-                    Atuação técnica em cadeia de custódia, investigação cibernética e produção de prova digital com validade jurídica
+                    Especialista em Computação Forense e Análise de Evidências Digitais
                 </p>
 
                 <p class="authority">
-                    Atuação em contextos periciais com requisitos formais de sigilo, integridade da prova e conformidade legal.
+                    Atuação focada na preservação da cadeia de custódia, investigação de incidentes cibernéticos e produção de laudos periciais com validade jurídica.
                 </p>
             </div>
 
             <div class="hero-photo">
-                <img src="Rodrigo.png" alt="Retrato de Rodrigo A. Paiva" class="profile-image">
+                <img src="Rodrigo.png" alt="Retrato profissional de Rodrigo A. Paiva, Perito Judicial" class="profile-image">
             </div>
 
         </div>
@@ -42,7 +42,7 @@
         <h2>Identidade Profissional</h2>
         
         <p>
-        Perito Judicial no âmbito do Tribunal de Justiça de São Paulo, especializado em computação forense e análise de evidências digitais, com atuação voltada à preservação da cadeia de custódia e à produção de laudos periciais tecnicamente robustos, fundamentados em rigor científico e plena conformidade com a legislação vigente e os requisitos processuais.
+        Perito Judicial nomeado pelo Tribunal de Justiça de São Paulo, com especialização em computação forense e análise técnica de evidências digitais. Atuação dedicada à manutenção da integridade da cadeia de custódia e elaboração de laudos periciais fundamentados em metodologias científicas, assegurando conformidade com legislações vigentes e padrões processuais.
         </p>
     </section>
 
@@ -53,26 +53,35 @@
         <div class="services-grid">
 
             <article class="service-card">
-                <h3>Atuação alinhada à legislação vigente (LGPD, CPC e normas periciais)</h3>
+                <h3>Conformidade com LGPD, CPC e Normas Periciais</h3>
             </article>
 
             <article class="service-card">
-                <h3>Preservação rigorosa da cadeia de custódia</h3>
+                <h3>Manutenção Rigorosa da Cadeia de Custódia</h3>
             </article>
 
             <article class="service-card">
-                <h3>Produção de prova técnica com validade jurídica</h3>
+                <h3>Produção de Laudos com Admissibilidade Jurídica</h3>
             </article>
 
             <article class="service-card">
-                <h3>Rastreabilidade e integridade de evidências digitais</h3>
+                <h3>Rastreabilidade e Integridade de Dados Digitais</h3>
             </article>
 
             <article class="service-card">
-                <h3>Abordagem orientada à confiabilidade pericial</h3>
+                <h3>Metodologia Baseada em Rigor Científico</h3>
             </article>
 
         </div>
+    </section>
+
+    <!-- BASE TÉCNICA -->
+    <section class="methodology container">
+        <h2>Base Técnica e Metodológica</h2>
+        
+        <p>
+        Metodologia fundamentada em padrões internacionais de computação forense (NIST SP 800-86, ISO 27037). Utilização de ferramentas certificadas e procedimentos validados para assegurar integridade, autenticidade e admissibilidade de evidências em processos judiciais.
+        </p>
     </section>
 
     <!-- SERVIÇOS -->
@@ -149,10 +158,10 @@
 <!-- TYPEWRITER -->
 <script>
     const phrases = [
-        'Análise Forense de Alta Complexidade',
-        'Cadeia de Custódia em Ambientes Digitais',
-        'Investigação de Incidentes Cibernéticos',
-        'Produção de Prova Técnica com Validade Jurídica'
+        'Análise Forense Técnica',
+        'Preservação da Cadeia de Custódia',
+        'Investigação Cibernética Judicial',
+        'Laudos Periciais com Validade Jurídica'
     ];
 
     let currentPhrase = 0;
@@ -171,16 +180,16 @@
 
         if (!isDeleting && currentChar === text.length) {
             isDeleting = true;
-            return setTimeout(typeWriter, 1800);
+            return setTimeout(typeWriter, 2200);
         }
 
         if (isDeleting && currentChar === 0) {
             isDeleting = false;
             currentPhrase = (currentPhrase + 1) % phrases.length;
-            return setTimeout(typeWriter, 500);
+            return setTimeout(typeWriter, 600);
         }
 
-        setTimeout(typeWriter, isDeleting ? 50 : 90);
+        setTimeout(typeWriter, isDeleting ? 70 : 120);
     }
 
     typeWriter();

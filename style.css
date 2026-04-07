@@ -14,6 +14,17 @@
     --shadow-glow: rgba(0, 242, 255, 0.14);
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +40,7 @@ body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
     color: var(--text-primary);
-    line-height: 1.65;
+    line-height: 1.6;
     overflow-x: hidden;
     position: relative;
 }
@@ -52,7 +63,7 @@ body::before {
         linear-gradient(rgba(0, 242, 255, 0.10) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 242, 255, 0.10) 1px, transparent 1px);
     background-size: 100% 100%, 50px 50px, 50px 50px;
-    opacity: 0.16;
+    opacity: 0.12;
     z-index: -2;
     pointer-events: none;
 }
@@ -68,8 +79,8 @@ body::after {
     letter-spacing: 0.32em;
     line-height: 0.95;
     text-align: center;
-    color: rgba(255, 255, 255, 0.11);
-    text-shadow: 0 0 24px rgba(0, 242, 255, 0.12);
+    color: rgba(255, 255, 255, 0.08);
+    text-shadow: 0 0 24px rgba(0, 242, 255, 0.08);
     mix-blend-mode: screen;
     pointer-events: none;
     user-select: none;
@@ -82,12 +93,12 @@ body::after {
     body::after {
         font-size: clamp(64px, 14vw, 110px);
         transform: translate(-50%, -50%) rotate(-4deg);
-        opacity: 0.08;
+        opacity: 0.06;
     }
 }
 
 .container {
-    width: min(1120px, calc(100% - 48px));
+    width: min(1120px, calc(100% - 64px));
     margin: 0 auto;
 }
 
@@ -110,36 +121,41 @@ main {
     align-items: center;
 }
 
+.hero-copy {
+    animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
 .hero-copy h1 {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
-    line-height: 0.96;
-    margin-bottom: 18px;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    margin-bottom: 20px;
 }
 
 .hero-copy h2 {
     font-size: clamp(1.35rem, 1.75vw, 1.85rem);
     font-weight: 400;
-    color: rgba(232, 247, 255, 0.92);
-    max-width: 720px;
-    margin-bottom: 24px;
+    color: rgba(232, 247, 255, 0.94);
+    max-width: 680px;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .hero-tagline {
     color: rgba(168, 223, 255, 0.84);
-    max-width: 700px;
+    max-width: 680px;
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.75;
 }
 
 .authority {
     color: rgba(168, 223, 255, 0.84);
-    max-width: 700px;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-top: 16px;
+    max-width: 680px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    margin-top: 18px;
 }
 
 .hero-photo {
@@ -152,79 +168,92 @@ main {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid rgba(0, 242, 255, 0.88);
-    padding: 10px;
-    background: radial-gradient(circle at top, rgba(0, 242, 255, 0.12), transparent 55%);
-    box-shadow: 0 0 50px rgba(0, 242, 255, 0.16), 0 30px 90px rgba(0, 0, 0, 0.35);
+    border: 2px solid rgba(0, 242, 255, 0.88);
+    padding: 8px;
+    background: radial-gradient(circle at top, rgba(0, 242, 255, 0.1), transparent 55%);
+    box-shadow: 0 0 32px rgba(0, 242, 255, 0.12), 0 24px 64px rgba(0, 0, 0, 0.28);
 }
 
 .about,
+.methodology,
+.differentials,
 .services {
-    padding: 60px 0;
-    border-top: 1px solid rgba(0, 242, 255, 0.12);
+    padding: 72px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.08);
 }
 
 .about h2,
+.methodology h2,
+.differentials h2,
 .services h2 {
     font-size: clamp(2rem, 3vw, 2.6rem);
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     color: #e6f8ff;
 }
 
 .about p,
+.methodology p,
 .service-card p,
 .footer-bottom p {
     font-size: 1rem;
     color: rgba(199, 236, 255, 0.92);
 }
 
-.about p {
+.about p,
+.methodology p {
     max-width: 860px;
+    line-height: 1.7;
 }
 
 .differentials {
-    padding: 60px 0;
-    border-top: 1px solid rgba(0, 242, 255, 0.12);
-}
-
-.differentials h2 {
-    font-size: clamp(2rem, 3vw, 2.6rem);
-    margin-bottom: 22px;
-    color: #e6f8ff;
+    padding-top: 72px;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 30px;
+    gap: 32px;
+    margin-top: 32px;
 }
 
 .service-card {
     background: var(--surface);
     border: 1px solid var(--border-glow);
-    backdrop-filter: blur(12px);
-    border-radius: 22px;
-    padding: 30px 28px;
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
-    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 32px 28px;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    will-change: transform, border-color, box-shadow;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0, 242, 255, 0.28);
-    box-shadow: 0 26px 85px rgba(0, 0, 0, 0.34);
+    transform: translateY(-2px);
+    border-color: rgba(0, 242, 255, 0.2);
+    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.18);
 }
 
 .service-card h3 {
-    margin-bottom: 16px;
-    font-size: 1.18rem;
+    margin-bottom: 18px;
+    font-size: 1.12rem;
+    line-height: 1.4;
     color: #dff9ff;
+    letter-spacing: 0.01em;
+}
+
+.service-card p {
+    font-size: 0.96rem;
+    color: rgba(199, 236, 255, 0.88);
+    line-height: 1.65;
+}
+
+.differentials .service-card h3 {
+    font-size: 1.05rem;
 }
 
 footer {
     color: rgba(232, 247, 255, 0.88);
-    padding: 64px 0 48px;
+    padding: 72px 0 48px;
     border-top: 1px solid rgba(0, 242, 255, 0.08);
     background: rgba(0, 0, 0, 0.02);
 }
@@ -235,7 +264,7 @@ footer {
     justify-content: space-between;
     gap: 32px;
     flex-wrap: wrap;
-    padding-bottom: 32px;
+    padding-bottom: 40px;
 }
 
 .seal {
@@ -262,17 +291,19 @@ footer {
 .button {
     display: inline-flex;
     align-items: center;
-    padding: 14px 24px;
+    padding: 16px 24px;
     border-radius: 0;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s ease, opacity 0.2s ease;
+    transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid transparent;
+    will-change: transform, opacity, box-shadow;
 }
 
 .button:hover {
-    opacity: 0.9;
+    opacity: 0.94;
+    transform: translateY(-1px);
 }
 
 .button:focus {
@@ -284,10 +315,12 @@ footer {
     background: #0066cc;
     color: #ffffff;
     border-color: #0066cc;
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.16);
 }
 
 .button-primary:hover {
     background: #0052a3;
+    box-shadow: 0 8px 20px rgba(0, 82, 163, 0.18);
 }
 
 .button-secondary {
@@ -297,15 +330,15 @@ footer {
 }
 
 .button-secondary:hover {
-    background: rgba(0, 242, 255, 0.05);
+    background: rgba(0, 242, 255, 0.08);
 }
 
 .footer-bottom {
     border-top: 1px solid rgba(0, 242, 255, 0.08);
-    padding-top: 24px;
+    padding-top: 28px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     align-items: center;
 }
 
@@ -314,7 +347,7 @@ footer {
     color: rgba(154, 207, 224, 0.8);
     margin: 0;
     text-align: center;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 @media (min-width: 768px) {
@@ -335,11 +368,12 @@ footer {
 }
 
 .typewriter {
-    margin-top: 26px;
-    color: #8be8ff;
+    margin-top: 28px;
+    color: rgba(139, 232, 255, 0.88);
     font-size: 1rem;
-    letter-spacing: 0.02em;
-    opacity: 0.95;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    opacity: 0.92;
 }
 
 @media (max-width: 960px) {
