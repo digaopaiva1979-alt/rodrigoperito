@@ -21,9 +21,7 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     min-height: 100%;
@@ -89,7 +87,7 @@ body::after {
 
 /* ================== CONTAINER ================== */
 .container {
-    width: min(1120px, calc(100% - 128px)); /* espaço lateral maior */
+    width: min(1120px, calc(100% - 128px));
     margin: 0 auto;
     padding-left: 32px;
     padding-right: 32px;
@@ -206,8 +204,8 @@ body::after {
 }
 
 .service-card {
-    background: rgba(8, 16, 34, 0.78); /* fundo escuro semi-transparente */
-    border: 1px solid rgba(0, 242, 255, 0.08); /* borda discreta */
+    background: var(--surface);
+    border: 1px solid rgba(0, 242, 255, 0.08);
     backdrop-filter: blur(8px);
     border-radius: 18px;
     padding: 32px 28px;
@@ -247,21 +245,55 @@ body::after {
     color: rgba(0, 242, 255, 0.9);
 }
 
-/* Responsividade */
-@media (max-width: 960px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
+/* ================== BOTÕES ================== */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 2px solid transparent;
+    min-width: 180px;
 }
 
+.button-primary {
+    background: #0066cc;
+    color: #ffffff;
+    border-color: #0066cc;
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.25);
+}
 
+.button-primary:hover {
+    background: #00f2ff;
+    color: #000;
+    border-color: #00f2ff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 242, 255, 0.4);
+}
+
+.button-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: rgba(0, 242, 255, 0.3);
+}
+
+.button-secondary:hover {
+    background: rgba(0, 242, 255, 0.1);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 242, 255, 0.2);
+}
 
 /* ================== FOOTER ================== */
 footer {
     color: rgba(232, 247, 255, 0.88);
     padding: 72px 0 48px;
     border-top: 1px solid rgba(0, 242, 255, 0.08);
-    background: rgba(0, 0, 0, 0.02);
 }
 
 .footer-top {
@@ -273,20 +305,6 @@ footer {
     padding-bottom: 40px;
 }
 
-.seal {
-    display: inline-flex;
-    align-items: center;
-    padding: 16px 24px;
-    border-radius: 0;
-    border: 1px solid rgba(0, 242, 255, 0.2);
-    background: rgba(0, 242, 255, 0.04);
-    color: #d5f8ff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
 .footer-actions {
     display: flex;
     flex-wrap: wrap;
@@ -294,48 +312,14 @@ footer {
     justify-content: flex-end;
 }
 
-.button {
-    display: inline-flex;
-    align-items: center;
-    padding: 16px 24px;
-    border-radius: 0;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid transparent;
-}
-
-.button-primary {
-    background: #0066cc;
-    color: #ffffff;
-    border-color: #0066cc;
-    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.16);
-}
-
-.button-primary:hover {
-    background: #0052a3;
-    box-shadow: 0 8px 20px rgba(0, 82, 163, 0.18);
-}
-
-.button-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border-color: rgba(0, 242, 255, 0.3);
-}
-
-.button-secondary:hover {
-    background: rgba(0, 242, 255, 0.08);
-}
-
 .footer-bottom {
     border-top: 1px solid rgba(0, 242, 255, 0.08);
     padding-top: 28px;
     display: flex;
-    flex-direction: column; /* mantém em coluna sempre */
+    flex-direction: column;
     gap: 12px;
-    align-items: center;    /* centraliza horizontalmente */
-    text-align: center;     /* centraliza o texto */
+    align-items: center;
+    text-align: center;
 }
 
 .footer-bottom p {
@@ -343,9 +327,6 @@ footer {
     color: rgba(154, 207, 224, 0.8);
     margin: 0;
 }
-
-    
-
 
 /* ================== TYPEWRITER ================== */
 .typewriter {
@@ -359,27 +340,13 @@ footer {
 
 /* ================== RESPONSIVIDADE ================== */
 @media (max-width: 960px) {
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
-    .hero {
-        padding-top: 64px;
-    }
-    .profile-image {
-        width: 260px;
-        height: 260px;
-    }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero { padding-top: 64px; }
+    .profile-image { width: 260px; height: 260px; }
 }
 
 @media (max-width: 720px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-top {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .footer-actions {
-        justify-content: center;
-    }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; align-items: stretch; }
+    .footer-actions { justify-content: center; }
 }
