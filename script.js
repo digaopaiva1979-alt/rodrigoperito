@@ -1,9 +1,10 @@
 /* ================== TYPEWRITER ================== */
 const phrases = [
-    'Análise Forense Técnica',
-    'Preservação da Cadeia de Custódia',
-    'Investigação Cibernética Judicial',
-    'Laudos Periciais com Validade Jurídica'
+    'Atuação Técnica em Contextos Judiciais e Criminais',
+    'Análise Forense Digital Avançada',
+    'Garantia e Preservação da Cadeia de Custódia',
+    'Investigação Cibernética com Rigor Judicial',
+    'Elaboração de Laudos Periciais com Admissibilidade Jurídica'
 ];
 
 let currentPhrase = 0;
