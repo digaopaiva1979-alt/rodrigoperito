@@ -1,94 +1,86 @@
-/* PERITO RODRIGO A. PAIVA 
+/* PERITO RODRIGO A. PAIVA
    Estética: Forensic Cyber-Law (Justiça + Tech)
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
 
 :root {
-    --bg-deep: #050505;
+    --bg-dark: #000000;
     --cyber-blue: #00f2ff;
-    --text-main: #e8f7ff;
-    --text-dim: #a8dfff;
-    --glass: rgba(6, 13, 28, 0.7);
-    --border-glow: rgba(0, 242, 255, 0.2);
+    --text-primary: #e8f7ff;
+    --text-muted: #a8dfff;
+    --surface: rgba(8, 16, 34, 0.78);
+    --border-glow: rgba(0, 242, 255, 0.16);
+    --shadow-glow: rgba(0, 242, 255, 0.14);
 }
 
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-deep);
-    color: var(--text-main);
+    min-height: 100%;
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.65;
     overflow-x: hidden;
     position: relative;
 }
 
-/* --- CAMADAS DE FUNDO (JUSTIÇA CIBERNÉTICA) --- */
-
-/* 1. Grid Técnico de Auditoria */
-body::before {
-    content: "";
+#background-canvas {
     position: fixed;
     inset: 0;
-    background-image: 
-        linear-gradient(var(--border-glow) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-glow) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 242, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.12) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.16;
     z-index: -2;
     pointer-events: none;
 }
 
-/* 2. Marca d'água de Autoridade */
 body::after {
     content: 'DATA VERITATIS';
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-10deg);
-    font-size: 12vw;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    font-size: clamp(120px, 12vw, 220px);
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.02);
-    letter-spacing: 0.4em;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.03);
     pointer-events: none;
-    z-index: -3;
     user-select: none;
+    z-index: -1;
 }
-
-/* 3. Scanner de Varredura Forense */
-.scan-line {
-    position: fixed;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
-    box-shadow: 0 0 20px var(--cyber-blue);
-    opacity: 0.2;
-    z-index: 999;
-    pointer-events: none;
-    animation: scanAnimation 12s linear infinite;
-}
-
-@keyframes scanAnimation {
-    0% { top: -5%; }
-    100% { top: 105%; }
-}
-
-/* --- ESTRUTURA --- */
 
 .container {
-    max-width: 1100px;
+    width: min(1120px, calc(100% - 48px));
     margin: 0 auto;
-    padding: 0 25px;
 }
 
-/* Hero Section */
+main {
+    position: relative;
+    z-index: 1;
+}
+
 .hero {
     min-height: 90vh;
     display: flex;
@@ -96,128 +88,214 @@ body::after {
     padding: 80px 0;
 }
 
-.hero-grid {
+.hero-inner {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 50px;
+    gap: 48px;
     align-items: center;
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+.hero-copy h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-bottom: 15px;
+    letter-spacing: -0.03em;
+    line-height: 0.96;
+    margin-bottom: 18px;
 }
 
-.hero-content h1 span {
-    color: var(--cyber-blue);
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+.hero-copy h2 {
+    font-size: clamp(1.35rem, 1.75vw, 1.85rem);
+    font-weight: 400;
+    color: rgba(232, 247, 255, 0.92);
+    max-width: 720px;
+    margin-bottom: 24px;
 }
 
-.hero-content h2 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-dim);
-    margin-bottom: 30px;
+.hero-tagline {
+    color: rgba(168, 223, 255, 0.84);
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
-/* Foto com Glow Pericial */
-.profile-img {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    border: 2px solid var(--cyber-blue);
-    padding: 10px;
-    background: radial-gradient(circle, var(--border-glow), transparent);
-    box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
+.hero-photo {
+    display: grid;
+    place-items: center;
+}
+
+.profile-image {
+    width: min(340px, 70vw);
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 242, 255, 0.88);
+    padding: 10px;
+    background: radial-gradient(circle at top, rgba(0, 242, 255, 0.12), transparent 55%);
+    box-shadow: 0 0 50px rgba(0, 242, 255, 0.16), 0 30px 90px rgba(0, 0, 0, 0.35);
 }
 
-/* Cards de Serviços (Glassmorphism) */
+.about,
+.services {
+    padding: 60px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.12);
+}
+
+.about h2,
+.services h2 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    margin-bottom: 22px;
+    color: #e6f8ff;
+}
+
+.about p,
+.service-card p,
+.footer-bottom p {
+    font-size: 1rem;
+    color: rgba(199, 236, 255, 0.92);
+}
+
+.about p {
+    max-width: 860px;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 30px;
 }
 
 .service-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
+    background: var(--surface);
     border: 1px solid var(--border-glow);
-    padding: 30px;
-    border-radius: 15px;
-    transition: 0.4s ease;
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 30px 28px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .service-card:hover {
-    border-color: var(--cyber-blue);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(0, 242, 255, 0.28);
+    box-shadow: 0 26px 85px rgba(0, 0, 0, 0.34);
 }
 
 .service-card h3 {
-    color: var(--cyber-blue);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-size: 1.18rem;
+    color: #dff9ff;
 }
 
-/* Rodapé (Autoridade Judicial) */
 footer {
-    background: #000;
-    padding: 60px 0;
-    border-top: 1px solid var(--border-glow);
-    text-align: center;
+    color: rgba(232, 247, 255, 0.88);
+    padding: 56px 0 42px;
 }
 
-.judicial-seal {
-    display: inline-block;
-    padding: 8px 20px;
-    border: 1px solid var(--cyber-blue);
-    color: var(--cyber-blue);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-
-.btn-group {
+.footer-top {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    flex-wrap: wrap;
+    padding-bottom: 22px;
+}
+
+.seal {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 242, 255, 0.28);
+    background: rgba(0, 242, 255, 0.08);
+    color: #d5f8ff;
+    font-size: 0.92rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-.btn {
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 5px;
+.footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-size: 0.98rem;
     font-weight: 600;
-    transition: 0.3s;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
-.btn-primary {
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
     background: var(--cyber-blue);
     color: #000;
+    box-shadow: 0 18px 38px rgba(0, 242, 255, 0.18);
 }
 
-.btn-secondary {
-    border: 1px solid var(--cyber-blue);
-    color: var(--cyber-blue);
+.button-secondary {
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 242, 255, 0.24);
 }
 
-.btn:hover {
-    filter: brightness(1.2);
-    box-shadow: 0 0 20px var(--cyber-blue);
+.footer-bottom {
+    border-top: 1px solid rgba(0, 242, 255, 0.12);
+    padding-top: 22px;
+    display: flex;
+    justify-content: center;
 }
 
-/* Responsividade */
-@media (max-width: 850px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; }
-    .profile-img { width: 220px; height: 220px; margin: 0 auto; }
-    .btn-group { flex-direction: column; }
+.footer-bottom p {
+    font-size: 0.95rem;
+    color: rgba(154, 207, 224, 0.92);
+}
+
+.typewriter {
+    margin-top: 26px;
+    color: #8be8ff;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    opacity: 0.95;
+}
+
+@media (max-width: 960px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        padding-top: 64px;
+    }
+    .profile-image {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: min(100%, calc(100% - 32px));
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .footer-actions {
+        justify-content: center;
+    }
 }
