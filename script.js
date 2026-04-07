@@ -23,10 +23,21 @@ const canvas = document.getElementById('background-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
 const hexChars = '0123456789ABCDEF'.split('');
+let mouse = {x: null, y: null};
 
 function resizeCanvas() { canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
 window.addEventListener('resize',resizeCanvas);
 resizeCanvas();
+
+canvas.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+canvas.addEventListener('mouseleave', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
 
 function randomHexGroup() { 
   return Array.from({length:4},()=>hexChars[Math.floor(Math.random()*16)]+hexChars[Math.floor(Math.random()*16)]).join(' '); 
@@ -58,7 +69,17 @@ function drawConnections(maxDistance=120){
       const dist = Math.sqrt(dx*dx + dy*dy);
       if(dist < maxDistance){
         const alpha = 0.08*(1 - dist/maxDistance);
-        ctx.strokeStyle = `rgba(0,242,255,${alpha})`;
+
+        // se mouse próximo, aumenta alpha
+        let mouseFactor = 0;
+        if(mouse.x && mouse.y){
+          const mdx = (particles[i].x + particles[j].x)/2 - mouse.x;
+          const mdy = (particles[i].y + particles[j].y)/2 - mouse.y;
+          const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+          if(mdist < maxDistance) mouseFactor = (1 - mdist/maxDistance)*0.25;
+        }
+
+        ctx.strokeStyle = `rgba(0,242,255,${alpha + mouseFactor})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(particles[i].x,particles[i].y);
@@ -79,8 +100,19 @@ function animate(){
   // Partículas
   particles.forEach(p=>{
     const isScan=Math.abs(p.y-scanY)<18;
-    ctx.fillStyle=isScan?'rgba(0,242,255,0.25)':'rgba(0,242,255,0.03)';
-    if(isScan){ 
+    let alpha = isScan ? 0.25 : 0.03;
+
+    // Brilho se mouse próximo
+    if(mouse.x && mouse.y){
+      const mdx = p.x - mouse.x;
+      const mdy = p.y - mouse.y;
+      const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+      if(mdist < 100) alpha = Math.min(0.9, alpha + (1 - mdist/100)*0.3);
+    }
+
+    ctx.fillStyle=`rgba(0,242,255,${alpha})`;
+
+    if(alpha>0.25){ 
       ctx.save(); 
       ctx.shadowColor='rgba(0,242,255,0.35)'; 
       ctx.shadowBlur=12; 
@@ -89,6 +121,7 @@ function animate(){
     } else {
       ctx.fillText(p.text,p.x,p.y);
     }
+
     p.y+=p.speed; 
     if(p.y>canvas.height){ p.y=0; p.text=randomHexGroup(); }
   });
