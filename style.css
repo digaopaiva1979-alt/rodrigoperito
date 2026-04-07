@@ -311,28 +311,20 @@ footer {
     border-top: 1px solid rgba(0, 242, 255, 0.08);
     padding-top: 28px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* mantém em coluna sempre */
     gap: 12px;
-    align-items: center;
+    align-items: center;    /* centraliza horizontalmente */
+    text-align: center;     /* centraliza o texto */
 }
 
 .footer-bottom p {
     font-size: 0.88rem;
     color: rgba(154, 207, 224, 0.8);
-    text-align: center;
+    margin: 0;
 }
 
-@media (min-width: 768px) {
-    .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+    
 
-    .footer-bottom p:last-child {
-        text-align: right;
-    }
-}
 
 /* ================== TYPEWRITER ================== */
 .typewriter {
