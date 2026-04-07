@@ -1,41 +1,38 @@
 # Portfólio de Rodrigo A. Paiva
 
-## Perito Judicial & Especialista em Segurança Cibernética Ofensiva
+## Perito Judicial (TJSP) e Especialista em Computação Forense
 
-Bem-vindo ao portfólio profissional de Rodrigo A. Paiva, especialista em Computação Forense e Segurança Cibernética. Este site apresenta minha trajetória, serviços especializados e canais de contato para consultorias técnicas.
+Este portfólio apresenta a identidade profissional do Perito Rodrigo A. Paiva, com foco em serviços forenses digitais, perícia judicial e investigação cibernética. O site foi desenvolvido como uma vitrine corporativa de alto padrão, unindo precisão técnica e estética de segurança.
 
 ### Sobre
-Especialista em Computação Forense com sólida trajetória na tradução de evidências digitais complexas para o contexto jurídico. Atuante no Tribunal de Justiça de São Paulo (TJSP), unindo expertise em Cybersecurity, Defesa de Redes e Algoritmos Quânticos para garantir a integridade da prova e o rigor técnico em laudos periciais judiciais e extrajudiciais.
+Rodrigo A. Paiva atua como perito judicial no Tribunal de Justiça de São Paulo (TJSP), combinando experiência em análise de evidências digitais, cadeia de custódia e laudos técnicos. O portfólio traduz a seriedade de seus serviços em um visual autoritário, inspirado em interfaces de auditoria e cibersegurança.
 
-### Serviços Oferecidos
-- **Perícia Computacional Forense**: Exames periciais em dispositivos, servidores e ambientes em nuvem com rigorosa observância à cadeia de custódia.
-- **Investigação de Incidentes Cibernéticos**: Identificação de vetores de ataque, análise de invasões e resposta a incidentes de segurança de dados.
-- **Auditoria e Pentesting**: Testes de intrusão e avaliação de vulnerabilidades em infraestruturas críticas sob normas internacionais.
-- **Recuperação de Ativos Digitais**: Técnicas avançadas para extração e recuperação de dados perdidos ou intencionalmente apagados.
-- **Consultoria em Segurança Quântica**: Implementação de estratégias de defesa contra ameaças criptográficas emergentes.
-- **Elaboração de Pareceres Técnicos**: Redação técnica e estratégica para suporte em litígios e assistência técnica às partes.
+### Serviços Destaque
+- **Perícia Computacional Forense**: análise técnica de dispositivos, servidores e ambientes digitais com preservação da integridade probatória.
+- **Investigação de Incidentes Cibernéticos**: identificação de ataques, vetores de invasão e análise forense de artefatos digitais.
+- **Cadeia de Custódia e Preservação de Evidências**: controle rígido do percurso das evidências desde a coleta até a apresentação judicial.
+- **Segurança Pós-Quântica**: avaliação de riscos criptográficos emergentes e recomendações de proteção de dados.
+- **Laudos Técnicos e Assistência Pericial**: elaboração de pareceres claros, técnicos e adequados ao processo jurídico.
 
-### Tecnologias Utilizadas
+### Recursos Técnicos
 - HTML5, CSS3, JavaScript
-- Canvas API para animações de fundo
-- Design Responsivo (Mobile First)
-- Estética Futurista com elementos Neon
+- Canvas API para fundo animado de rede e scanner
+- Layout responsivo com foco na legibilidade e autoridade visual
+- Estilo corporativo escuro com elementos de cibersegurança e auditoria
 
-### Como Executar
-1. Clone o repositório.
-2. Abra `index.html` em um navegador web.
+### Executando o Projeto
+1. Clone este repositório.
+2. Abra `index.html` em um navegador compatível.
 3. Para desenvolvimento local, use um servidor HTTP simples:
    ```bash
    python3 -m http.server 8000
    ```
-   Acesse em `http://localhost:8000`.
+4. Acesse `http://localhost:8000`
 
 ### Contato
-- **WhatsApp**: [Solicitar Consultoria Técnica Imediata](https://wa.me/5511991001952?text=Olá%20Rodrigo,%20vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20especializada)
+- **WhatsApp**: [https://wa.me/5511991001952?text=Olá%20Rodrigo,%20vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20especializada](https://wa.me/5511991001952?text=Olá%20Rodrigo,%20vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20especializada)
 - **E-mail**: rodrigo.cyberforense@gmail.com
 
-Para dúvidas ou solicitações de consultoria, entre em contato diretamente.
-
-### Licença
-Este portfólio é pessoal e não possui licença específica para uso comercial.</content>
+### Observação
+Este portfólio é uma apresentação pessoal e não possui licença de uso comercial.</content>
 <parameter name="filePath">/home/rodrigo/Portifolio/README.md
