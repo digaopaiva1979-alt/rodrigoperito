@@ -3,210 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Rodrigo A. Paiva, Perito Judicial</title>
+    <title>RODRIGO A. PAIVA | Perito Judicial & Especialista em Computação Forense</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="background-canvas"></canvas>
-    <section class="hero">
-        <div class="hero-content">
-            <div class="text-content">
-                <h1>Rodrigo A. Paiva</h1>
-                <h2>Perito Judicial & Especialista em Segurança Cibernética Ofensiva</h2>
-                <p id="typewriter"></p>
-            </div>
-            <div class="image-content">
-                <img src="Rodrigo.png" alt="Foto de Rodrigo" class="profile-image">
-            </div>
-        </div>
-    </section>
 
-    <!-- Seção Sobre -->
-    <section class="about">
-        <div class="container">
-            <h2>Sobre</h2>
-            <p>Especialista em Computação Forense com sólida trajetória na tradução de evidências digitais complexas para o contexto jurídico. Atuante no Tribunal de Justiça de São Paulo (TJSP), unindo expertise em Cybersecurity, Defesa de Redes e Algoritmos Quânticos para garantir a integridade da prova e o rigor técnico em laudos periciais judiciais e extrajudiciais.</p>
-        </div>
-    </section>
+    <main>
+        <header class="hero">
+            <div class="hero-inner container">
+                <div class="hero-copy">
+                    <p class="eyebrow">Perito Judicial (TJSP)</p>
+                    <h1>RODRIGO A. PAIVA</h1>
+                    <h2>Perito Judicial (TJSP) & Especialista em Computação Forense</h2>
+                    <p class="hero-tagline">Cadeia de Custódia | Investigação Cibernética | Segurança Pós-Quântica</p>
+                </div>
+                <div class="hero-photo">
+                    <img src="Rodrigo.png" alt="Retrato de Rodrigo A. Paiva" class="profile-image">
+                </div>
+            </div>
+        </header>
 
-    <!-- Seção Serviços -->
-    <section class="services">
-        <div class="container">
-            <h2>Serviços</h2>
+        <section class="about container">
+            <h2>Identidade Profissional</h2>
+            <p>Perito Judicial com atuação no Tribunal de Justiça de São Paulo. Especializado em análise de evidências digitais, preservação de cadeia de custódia e elaboração de laudos periciais com rigor técnico e compatibilidade judicial.</p>
+        </section>
+
+        <section class="services container">
+            <h2>Serviços Técnicos</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <h3>Perícia Computacional Forense</h3>
-                    <p>Exames periciais em dispositivos, servidores e ambientes em nuvem com rigorosa observância à cadeia de custódia.</p>
-                </div>
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    <h3>Investigação de Incidentes Cibernéticos</h3>
-                    <p>Identificação de vetores de ataque, análise de invasões e resposta a incidentes de segurança de dados.</p>
-                </div>
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                    </svg>
-                    <h3>Auditoria e Pentesting</h3>
-                    <p>Testes de intrusão e avaliação de vulnerabilidades em infraestruturas críticas sob normas internacionais.</p>
-                </div>
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    <h3>Recuperação de Ativos Digitais</h3>
-                    <p>Técnicas avançadas para extração e recuperação de dados perdidos ou intencionalmente apagados.</p>
-                </div>
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <h3>Consultoria em Segurança Quântica</h3>
-                    <p>Implementação de estratégias de defesa contra ameaças criptográficas emergentes.</p>
-                </div>
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    <h3>Elaboração de Pareceres Técnicos</h3>
-                    <p>Redação técnica e estratégica para suporte em litígios e assistência técnica às partes.</p>
-                </div>
+                <article class="service-card">
+                    <h3>Cadeia de Custódia e Preservação</h3>
+                    <p>Documentação, validação e manutenção da integridade das evidências digitais desde a coleta até a apresentação em juízo.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Investigação Cibernética Forense</h3>
+                    <p>Análise de incidentes de segurança, vetores de ataque, invasões e artefatos digitais em ambientes corporativos e judiciais.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Segurança Pós-Quântica</h3>
+                    <p>Avaliação de riscos criptográficos emergentes e recomendações para defesa de dados contra ameaças quânticas futuras.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Laudos Técnicos e Assistência Pericial</h3>
+                    <p>Redação de pareceres e relatórios periciais claros, técnicos e aderentes às exigências do processo judicial.</p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5511991001952?text=Olá%20Rodrigo,%20vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20especializada" class="whatsapp-float" target="_blank">
-        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-        </svg>
-        <span class="whatsapp-tooltip">Falar com o Perito agora</span>
-    </a>
-
-    <!-- Footer com Contato -->
     <footer class="footer">
-        <div class="container">
-            <h2>Contato</h2>
-            <p>Precisa de suporte especializado em evidências digitais?</p>
-            <a href="https://wa.me/5511991001952?text=Olá%20Rodrigo,%20vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20especializada" class="cta-button" target="_blank">Solicitar Consultoria Técnica Imediata</a>
-            <div class="email-container" onclick="copyEmail()">
-                <svg class="email-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                <span class="email-text">rodrigo.cyberforense@gmail.com</span>
+        <div class="footer-top container">
+            <div class="seal">Auxiliar da Justiça - TJSP</div>
+            <div class="footer-actions">
+                <a class="button button-primary" href="mailto:rodrigo.cyberforense@gmail.com">E-mail: rodrigo.cyberforense@gmail.com</a>
+                <a class="button button-secondary" href="https://wa.me/5511991001952?text=Ol%C3%A1%20Rodrigo%2C%20solicito%20uma%20consultoria%20t%C3%A9cnica%20especializada." target="_blank" rel="noreferrer">WhatsApp: +55 11 99100-1952</a>
             </div>
         </div>
-        <div id="copy-notification" class="copy-notification">Copiado!</div>
+        <div class="footer-bottom container">
+            <p>© 2026 Rodrigo A. Paiva. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script>
-        // Typewriter effect
         const phrases = [
             'Análise Forense de Alta Complexidade.',
-            'Cadeia de Custódia e Preservação de Evidências.',
-            'Especialista em Defesa e Ameaças de Rede (Cisco Certified).',
-            'Pesquisador em Segurança Pós-Quântica.'
+            'Cadeia de Custódia em Ambientes Digitais.',
+            'Investigação de Incidentes Cibernéticos.',
+            'Segurança Pós-Quântica e Defesa de Ativos.'
         ];
         let currentPhrase = 0;
         let currentChar = 0;
         let isDeleting = false;
-        const typewriterElement = document.getElementById('typewriter');
+        const typewriterElement = document.createElement('p');
+        typewriterElement.className = 'typewriter';
+        document.querySelector('.hero-copy').appendChild(typewriterElement);
 
         function typeWriter() {
             const fullText = phrases[currentPhrase];
             if (isDeleting) {
-                typewriterElement.textContent = fullText.substring(0, currentChar - 1);
                 currentChar--;
-                if (currentChar < 0) {
-                    isDeleting = false;
-                    currentPhrase = (currentPhrase + 1) % phrases.length;
-                    setTimeout(typeWriter, 500);
-                    return;
-                }
             } else {
-                typewriterElement.textContent = fullText.substring(0, currentChar + 1);
                 currentChar++;
-                if (currentChar === fullText.length) {
-                    isDeleting = true;
-                    setTimeout(typeWriter, 2000);
-                    return;
-                }
             }
-            setTimeout(typeWriter, isDeleting ? 50 : 100);
-        }
+            typewriterElement.textContent = fullText.substring(0, currentChar);
 
+            if (!isDeleting && currentChar === fullText.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, 1800);
+                return;
+            }
+
+            if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                setTimeout(typeWriter, 500);
+                return;
+            }
+            setTimeout(typeWriter, isDeleting ? 50 : 90);
+        }
         typeWriter();
-
-        // Canvas background animation
-        const canvas = document.getElementById('background-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let particles = [];
-        const particleCount = 50;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.fillStyle = '#00FFFF';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        function copyEmail() {
-            navigator.clipboard.writeText('rodrigo.cyberforense@gmail.com').then(() => {
-                const notification = document.getElementById('copy-notification');
-                notification.style.display = 'block';
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 2000);
-            });
-        }
     </script>
-
     <script src="script.js"></script>
 </body>
-</html></content>
-<parameter name="filePath">/home/rodrigo/Portifolio/index.html
+</html>
