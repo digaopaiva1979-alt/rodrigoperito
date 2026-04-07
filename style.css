@@ -9,7 +9,7 @@
     --text-muted: #a8dfff;
     --surface: rgba(8, 16, 34, 0.78);
     --border-glow: rgba(0, 242, 255, 0.16);
-    --shadow-glow: rgba(0, 242, 255, 0.14);
+    --shadow-glow: rgba(200, 0, 255, 0.973);
     --hero-padding: 120px;
     --content-padding: 72px;
 }
