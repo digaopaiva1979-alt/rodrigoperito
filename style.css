@@ -48,31 +48,34 @@ body::before {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(0, 242, 255, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.12) 1px, transparent 1px);
-    background-size: 48px 48px;
+        radial-gradient(circle at center, rgba(0, 242, 255, 0.06), transparent 30%),
+        linear-gradient(rgba(0, 242, 255, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.10) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
     opacity: 0.16;
     z-index: -2;
     pointer-events: none;
 }
 
 body::after {
-    content: 'DATA VERITATIS';
+    content: 'DATA\A VERITATIS';
     position: fixed;
-    top: 50%;
+    top: 52%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-6deg);
-    font-size: clamp(90px, 10vw, 160px);
+    transform: translate(-50%, -50%) rotate(-4deg);
+    font-size: clamp(72px, 9vw, 140px);
     font-weight: 900;
-    letter-spacing: 0.35em;
-    color: rgba(255, 255, 255, 0.1);
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+    letter-spacing: 0.32em;
+    line-height: 0.95;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.11);
+    text-shadow: 0 0 24px rgba(0, 242, 255, 0.12);
     mix-blend-mode: screen;
     pointer-events: none;
     user-select: none;
     z-index: -1;
-    white-space: nowrap;
-    max-width: 100vw;
+    white-space: pre;
+    max-width: 90vw;
 }
 
 @media (max-width: 720px) {
