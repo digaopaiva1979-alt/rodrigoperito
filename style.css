@@ -65,7 +65,9 @@ body::after {
     font-size: clamp(120px, 12vw, 220px);
     font-weight: 900;
     letter-spacing: 0.35em;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.08);
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.08);
+    mix-blend-mode: screen;
     pointer-events: none;
     user-select: none;
     z-index: -1;
