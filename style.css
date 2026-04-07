@@ -212,16 +212,22 @@ body::after {
     border-radius: 18px;
     padding: 32px 28px;
     box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
-    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
+    will-change: transform, border-color, box-shadow, background, color;
 }
 
 .service-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(0, 242, 255, 0.2);
-    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+    border-color: #00f2ff; /* destaque azul cibernético */
+    box-shadow: 0 20px 52px rgba(0, 242, 255, 0.18);
+    background: rgba(0, 242, 255, 0.05); /* leve brilho */
 }
 
-.service-card h3 {
+.service-card:hover h3,
+.service-card:hover p {
+    color: #00f2ff; /* muda o texto também para destacar */
+}
+
     margin-bottom: 18px;
     font-size: 1.12rem;
     line-height: 1.4;
