@@ -260,7 +260,7 @@ body::after {
 }
 
 .footer-actions .button:hover {
-    background: rgba(0, 242, 255, 0.8);
+    background: rgba(4, 0, 255, 0.934);
     transform: translateY(-2px);
     box-shadow: 0 10px 28px rgba(0, 242, 255, 0.4);
 }
