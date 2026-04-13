@@ -1,235 +1,184 @@
-/* ================== FONTS ================== */
+/* ================== FONTS & VARIÁVEIS ================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
 
-/* ================== VARIÁVEIS ================== */
 :root {
     --bg-dark: #000000;
     --cyber-blue: #00f2ff;
     --text-primary: #e8f7ff;
     --text-muted: #a8dfff;
-    --surface: rgba(8, 16, 34, 0.78);
-    --border-glow: rgba(0, 242, 255, 0.16);
-    --hero-padding: 120px;
-    --content-padding: 80px;
+    --surface: rgba(10, 20, 40, 0.7);
+    --hero-padding: 100px;
 }
 
-/* ================== RESET & BASE ================== */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html { scroll-behavior: smooth; }
-
+/* ================== RESET ================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-    min-height: 100%;
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* ================== BACKGROUND ================== */
-#background-canvas {
+/* ================== MARCA D'ÁGUA (FIXA NO CENTRO) ================== */
+body::after {
+    content: 'DATA\A VERITATIS';
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    font-size: clamp(60px, 12vw, 150px);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    line-height: 0.9;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.03); /* Sutil para não cansar a vista */
+    white-space: pre;
     pointer-events: none;
+    user-select: none;
+    z-index: -1;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-        radial-gradient(circle at center, rgba(0, 242, 255, 0.06), transparent 30%),
-        linear-gradient(rgba(0, 242, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.08) 1px, transparent 1px);
-    background-size: 100% 100%, 50px 50px, 50px 50px;
-    opacity: 0.15;
-    z-index: -2;
-}
-
-/* ================== CONTAINER ================== */
+/* ================== LAYOUT ================== */
 .container {
-    width: min(1120px, calc(100% - 64px));
+    width: min(1100px, 90%);
     margin: 0 auto;
 }
 
-/* ================== HERO (CENTRALIZADO) ================== */
+/* ================== HERO ================== */
 .hero {
-    min-height: 95vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--hero-padding) 0;
     text-align: center;
+    padding: var(--hero-padding) 0;
 }
 
 .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 48px;
-}
-
-.hero-copy {
-    animation: fadeInUp 1.2s ease-out both;
-}
-
-.hero-copy h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 24px;
-}
-
-.hero-copy h2 {
-    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
-    font-weight: 400;
-    color: var(--cyber-blue);
-    margin-bottom: 20px;
-    max-width: 900px;
-}
-
-.hero-tagline, .authority {
-    color: var(--text-muted);
-    max-width: 750px;
-    font-size: 1.1rem;
-    margin: 10px auto;
+    gap: 30px;
 }
 
 .profile-image {
-    width: min(280px, 60vw);
-    aspect-ratio: 1 / 1;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     border: 2px solid var(--cyber-blue);
-    padding: 10px;
-    background: radial-gradient(circle, rgba(0, 242, 255, 0.15), transparent);
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
+    padding: 8px;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
 }
 
-/* ================== SECTIONS ================== */
+.hero-copy h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.hero-copy h2 {
+    color: var(--cyber-blue);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    margin-bottom: 20px;
+}
+
+.authority {
+    max-width: 700px;
+    color: var(--text-muted);
+}
+
+/* ================== SEÇÕES CENTRALIZADAS ================== */
 section {
-    padding: var(--content-padding) 0;
+    padding: 80px 0;
+    text-align: center;
     border-top: 1px solid rgba(0, 242, 255, 0.1);
-    text-align: center; /* Centraliza tudo nas seções */
 }
 
 section h2 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-bottom: 32px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 40px;
 }
 
 section p {
     max-width: 800px;
-    margin: 0 auto 24px;
-    color: var(--text-muted);
+    margin: 0 auto;
 }
 
-/* ================== GRIDS & CARDS ================== */
+/* ================== CERTIFICAÇÕES ================== */
+.cert-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cert-item {
+    background: rgba(0, 242, 255, 0.05);
+    border: 1px solid var(--cyber-blue);
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+/* ================== GRIDS DE SERVIÇOS ================== */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    gap: 25px;
     margin-top: 40px;
 }
 
 .service-card {
     background: var(--surface);
-    border: 1px solid rgba(0, 242, 255, 0.1);
-    padding: 40px 30px;
+    padding: 40px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
     border-color: var(--cyber-blue);
-    box-shadow: 0 15px 45px rgba(0, 242, 255, 0.15);
+    transform: translateY(-5px);
 }
 
-.service-card h3 {
-    color: var(--cyber-blue);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
+.service-card h3 { color: var(--cyber-blue); margin-bottom: 15px; }
 
-/* ================== FOOTER (CENTRALIZADO) ================== */
+/* ================== FOOTER ================== */
 footer {
-    padding: 80px 0 40px;
-    border-top: 1px solid rgba(0, 242, 255, 0.1);
+    padding: 60px 0;
     text-align: center;
-}
-
-.footer-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .footer-actions {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .button {
-    padding: 16px 32px;
-    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 1px solid var(--cyber-blue);
-    background: transparent;
     color: var(--cyber-blue);
-    min-width: 220px;
+    border: 1px solid var(--cyber-blue);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .button:hover {
     background: var(--cyber-blue);
     color: #000;
-    box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
-    transform: scale(1.05);
 }
 
 .footer-bottom {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.5;
 }
 
-.footer-bottom p {
-    font-size: 0.85rem;
-    opacity: 0.6;
-    margin-bottom: 8px;
-}
-
-/* ================== ANIMAÇÃO ================== */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================== RESPONSIVIDADE ================== */
-@media (max-width: 768px) {
-    :root { --hero-padding: 80px; }
-    .footer-actions { flex-direction: column; width: 100%; align-items: center; }
-    .button { width: 100%; max-width: 320px; }
+@media (max-width: 720px) {
+    .footer-actions { flex-direction: column; align-items: center; }
+    .button { width: 100%; max-width: 300px; }
 }
