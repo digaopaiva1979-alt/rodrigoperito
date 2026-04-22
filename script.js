@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     // =========================
     // TYPEWRITER EFFECT
@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function type() {
         if (!el) return;
 
-        if (charIndex < texts[textIndex].length) {
-            el.innerHTML += texts[textIndex][charIndex];
+        const currentText = texts[textIndex];
+
+        if (charIndex < currentText.length) {
+            el.textContent += currentText.charAt(charIndex);
             charIndex++;
             setTimeout(type, 45);
         } else {
@@ -36,8 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function erase() {
         if (!el) return;
 
+        const currentText = texts[textIndex];
+
         if (charIndex > 0) {
-            el.innerHTML = texts[textIndex].substring(0, charIndex - 1);
+            el.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
             setTimeout(erase, 25);
         } else {
@@ -46,15 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    if (el) {
-        type();
-    }
+    if (el) type();
+
 
     // =========================
     // SWIPER CARROSSEL
     // =========================
-    if (typeof Swiper !== "undefined") {
-        new Swiper(".image-swiper", {
+    function initSwiper() {
+        if (typeof Swiper === "undefined") {
+            console.warn("Swiper não carregado");
+            return;
+        }
+
+        const swiperEl = document.querySelector(".image-swiper");
+        if (!swiperEl) return;
+
+        new Swiper(swiperEl, {
             loop: true,
             autoplay: {
                 delay: 4000,
@@ -77,24 +88,25 @@ document.addEventListener("DOMContentLoaded", function () {
             speed: 800,
             grabCursor: true
         });
-    } else {
-        console.warn("Swiper não carregado");
     }
 
+    initSwiper();
+
+
     // =========================
-    // CANVAS MATRIX EFFECT
+    // MATRIX CANVAS EFFECT
     // =========================
     const canvas = document.getElementById("bg-canvas");
-    const ctx = canvas ? canvas.getContext("2d") : null;
+    const ctx = canvas?.getContext("2d");
 
-    const binaryChars = "01";
+    const chars = "01";
     const fontSize = 14;
 
     let columns = 0;
     let drops = [];
     let interval = null;
 
-    function resizeCanvas() {
+    function resize() {
         if (!canvas) return;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -103,13 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function initDrops() {
         if (!canvas) return;
         columns = Math.floor(canvas.width / fontSize);
-        drops = Array(columns).fill(1);
+        drops = new Array(columns).fill(1);
     }
 
-    function drawMatrix() {
+    function draw() {
         if (!ctx || !canvas) return;
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = "rgba(5, 11, 20, 0.08)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -119,11 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.globalAlpha = 0.3;
 
         for (let i = 0; i < drops.length; i++) {
-            const text = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+            const char = chars[Math.floor(Math.random() * chars.length)];
             const x = i * fontSize;
             const y = drops[i] * fontSize;
 
-            ctx.fillText(text, x, y);
+            ctx.fillText(char, x, y);
 
             if (y > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
@@ -135,19 +145,23 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.globalAlpha = 1;
     }
 
-    if (canvas && ctx) {
-        resizeCanvas();
+    function startMatrix() {
+        if (!canvas || !ctx) return;
+
+        resize();
         initDrops();
 
-        interval = setInterval(drawMatrix, 100);
+        interval = setInterval(draw, 100);
 
         window.addEventListener("resize", () => {
-            resizeCanvas();
+            resize();
             initDrops();
 
             clearInterval(interval);
-            interval = setInterval(drawMatrix, 100);
+            interval = setInterval(draw, 100);
         });
     }
+
+    startMatrix();
 
 });
