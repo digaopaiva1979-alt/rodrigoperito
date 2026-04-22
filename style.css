@@ -17,10 +17,13 @@ body {
     color: #eafaff;
     overflow-x: hidden;
     position: relative;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* =====================================================
-   DESIGN TOKENS (SISTEMA VISUAL)
+   DESIGN TOKENS
 ===================================================== */
 :root {
     --primary: #00e0ff;
@@ -47,7 +50,7 @@ body {
 }
 
 /* =====================================================
-   BACKGROUND LAYER (MATRIX / CANVAS)
+   BACKGROUND CANVAS (FIX STABILITY)
 ===================================================== */
 #bg-canvas {
     position: fixed;
@@ -57,10 +60,11 @@ body {
     z-index: 0;
     opacity: 0.25;
     pointer-events: none;
+    will-change: transform;
 }
 
 /* =====================================================
-   WATERMARK (IDENTIDADE VISUAL)
+   WATERMARK
 ===================================================== */
 .watermark {
     position: fixed;
@@ -84,7 +88,7 @@ body {
 }
 
 /* =====================================================
-   HERO (COMMAND HEADER)
+   HERO (FIX LAYOUT SHIFT)
 ===================================================== */
 .hero {
     min-height: 90vh;
@@ -98,6 +102,15 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 60px;
+
+    /* evita “pulo” de conteúdo */
+    min-height: 420px;
+}
+
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .hero-copy h1 {
@@ -107,18 +120,22 @@ body {
     background: linear-gradient(135deg, #fff, var(--primary), #4c9aff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    line-height: 1.1;
 }
 
 .hero-copy h2 {
     margin: 20px 0;
     color: #b0e4ff;
     font-weight: 500;
+    line-height: 1.4;
 }
 
 .hero-tagline {
     color: var(--text-soft);
     max-width: 520px;
     margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 /* =====================================================
@@ -135,6 +152,8 @@ body {
 
     background: #1a2b3c;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    will-change: transform;
 }
 
 .hero-photo:hover {
@@ -150,7 +169,7 @@ body {
 }
 
 /* =====================================================
-   TYPEWRITER MODULE
+   TYPEWRITER (FIX JUMP / HEIGHT LOCK)
 ===================================================== */
 .typewriter {
     font-family: monospace;
@@ -163,10 +182,18 @@ body {
     border: 1px solid var(--border);
 
     display: inline-block;
+
+    /* FIX PRINCIPAL DO "SUBE E DESCE" */
+    min-height: 42px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+
+    will-change: contents;
 }
 
 /* =====================================================
-   ABOUT / CONTEXT BLOCK
+   ABOUT
 ===================================================== */
 .about {
     padding: 80px 0;
@@ -190,10 +217,11 @@ body {
     max-width: 800px;
     margin: 0 auto 15px;
     color: var(--text-soft);
+    line-height: 1.6;
 }
 
 /* =====================================================
-   CAROUSEL / EVIDENCE LAYER
+   CAROUSEL
 ===================================================== */
 .carousel-section {
     padding: 80px 0;
@@ -217,6 +245,7 @@ body {
     border-radius: 16px;
 
     transition: transform 0.4s ease;
+    will-change: transform;
 }
 
 .swiper-slide:hover .carousel-image {
@@ -224,7 +253,7 @@ body {
 }
 
 /* =====================================================
-   SPECIALTIES GRID (CAPACIDADES)
+   SPECIALTIES
 ===================================================== */
 .specialties {
     padding: 80px 0;
@@ -246,6 +275,7 @@ body {
     text-align: center;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
 }
 
 .specialty-card:hover {
@@ -268,10 +298,11 @@ body {
 .specialty-card p {
     color: var(--text-soft);
     font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 /* =====================================================
-   FOOTER (COMMAND CONTACT)
+   FOOTER
 ===================================================== */
 .footer {
     padding: 60px 0;
@@ -308,14 +339,14 @@ body {
 }
 
 /* =====================================================
-   LEGAL BLOCK
+   LEGAL
 ===================================================== */
 .footer-legal {
     margin-top: 15px;
 
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
 
     font-size: 0.75rem;
     color: #5b7f9a;
@@ -324,10 +355,11 @@ body {
 .footer-note {
     font-size: 0.8rem;
     color: #6f8fa8;
+    margin-top: 10px;
 }
 
 /* =====================================================
-   BACK TO TOP CONTROL
+   BACK TO TOP
 ===================================================== */
 .back-to-top {
     position: fixed;
@@ -361,13 +393,14 @@ body {
 }
 
 /* =====================================================
-   RESPONSIVE LAYER
+   RESPONSIVE FIX
 ===================================================== */
 @media (max-width: 800px) {
 
     .hero-inner {
         flex-direction: column-reverse;
         text-align: center;
+        min-height: auto;
     }
 
     .hero-photo {
@@ -378,5 +411,10 @@ body {
     .watermark {
         font-size: 10vw;
         letter-spacing: 6px;
+    }
+
+    .typewriter {
+        white-space: normal;
+        min-height: 48px;
     }
 }
