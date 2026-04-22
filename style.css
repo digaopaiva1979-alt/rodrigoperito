@@ -240,13 +240,18 @@ body {
 
 .carousel-image {
     width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    height: 420px; /* controla altura fixa do carrossel */
+    object-fit: contain; /* <- ESSA É A MUDANÇA PRINCIPAL */
+
     border-radius: 16px;
+    background: rgba(10, 20, 34, 0.6);
+
+    padding: 10px;
 
     transition: transform 0.4s ease;
     will-change: transform;
 }
+
 
 .swiper-slide:hover .carousel-image {
     transform: scale(1.05);
