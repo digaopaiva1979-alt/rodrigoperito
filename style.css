@@ -79,8 +79,6 @@ body {
 
 .hero-copy h2 {
     margin: 20px 0;
-    padding-left: 15px;
-    border-left: 4px solid var(--primary);
     color: #b0e4ff;
     font-weight: 500;
 }
