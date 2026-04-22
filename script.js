@@ -1,119 +1,112 @@
-/* ================== TYPEWRITER ================== */
-const phrases = [
-    'Atuação Técnica em Contextos Judiciais e Criminais',
-    'Análise Forense Digital Avançada',
-    'Garantia e Preservação da Cadeia de Custódia',
-    'Investigação Cibernética com Rigor Judicial',
-    'Elaboração de Laudos Periciais com Admissibilidade Jurídica'
+(function() {
+    // === TYPEWRITER EFFECT ===
+    const el = document.querySelector(".typewriter");
+  const texts = [
+    "Perito Judicial com atuação no TJSP e suporte técnico em litígios complexos",
+    "Especialista em Computação Forense e reconstrução de evidências digitais",
+    "Atuação avançada em Segurança Cibernética e resposta a incidentes",
+    "Análise de Cadeia de Custódia com conformidade legal e integridade probatória",
+    "Investigação de logs, correlação de eventos e rastreabilidade digital",
+    "Produção de laudos técnicos com validade jurídica e rigor metodológico",
+    "Atuação em perícia digital aplicada a fraudes, vazamentos e crimes cibernéticos",
+    "Pesquisa aplicada em tecnologias emergentes e computação quântica",
+    "Análise forense em dispositivos, redes e ambientes corporativos",
+    "Suporte técnico para advogados em estratégias probatórias digitais"
 ];
 
-let currentPhrase = 0;
-let currentChar = 0;
-let isDeleting = false;
-const el = document.querySelector('.typewriter');
+    let textIndex = 0;
+    let charIndex = 0;
 
-function typeWriter() {
-    const text = phrases[currentPhrase];
-    currentChar = isDeleting ? currentChar - 1 : currentChar + 1;
-    el.textContent = text.substring(0, currentChar);
-
-    if (!isDeleting && currentChar === text.length) {
-        isDeleting = true;
-        return setTimeout(typeWriter, 2200);
-    }
-
-    if (isDeleting && currentChar === 0) {
-        isDeleting = false;
-        currentPhrase = (currentPhrase + 1) % phrases.length;
-        return setTimeout(typeWriter, 600);
-    }
-
-    setTimeout(typeWriter, isDeleting ? 70 : 120);
-}
-
-typeWriter();
-
-/* ================== BACKGROUND CANVAS ================== */
-const canvas = document.getElementById('background-canvas');
-const ctx = canvas.getContext('2d');
-const hexChars = '0123456789ABCDEF';
-const columns = [];
-const scanner = { y: 0, speed: 0.75, width: 2 };
-const columnCountTarget = 40;
-
-function randomHexGroup() {
-    return Array.from({ length: 4 }, () => hexChars[Math.floor(Math.random() * 16)] + hexChars[Math.floor(Math.random() * 16)]).join(' ');
-}
-
-function createColumns() {
-    columns.length = 0;
-    const columnSpacing = Math.max(100, window.innerWidth / columnCountTarget);
-    for (let i = 0; i < Math.ceil(window.innerWidth / columnSpacing) + 2; i++) {
-        const x = i * columnSpacing + columnSpacing / 2;
-        const speed = 0.25 + Math.random() * 0.18;
-        const offset = Math.random() * window.innerHeight;
-        const groupCount = Math.ceil(window.innerHeight / 42) + 4;
-        const values = Array.from({ length: groupCount }, randomHexGroup);
-        columns.push({ x, y: offset, speed, values, spacing: 42 });
-    }
-}
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    createColumns();
-}
-
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-function drawBackground() {
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
-    ctx.textBaseline = 'top';
-    ctx.textAlign = 'left';
-}
-
-function drawColumns() {
-    columns.forEach(col => {
-        for (let i = 0; i < col.values.length; i++) {
-            const y = (i * col.spacing + col.y) % (canvas.height + col.spacing) - col.spacing;
-            const scanDistance = Math.abs(y - scanner.y);
-            const isScanned = scanDistance < 18;
-            ctx.fillStyle = isScanned ? 'rgba(0,242,255,0.25)' : 'rgba(0,242,255,0.03)';
-            ctx.fillText(col.values[i], col.x, y);
+    function type() {
+        if (charIndex < texts[textIndex].length) {
+            el.innerHTML += texts[textIndex][charIndex];
+            charIndex++;
+            setTimeout(type, 45);
+        } else {
+            setTimeout(erase, 2100);
         }
-        col.y += col.speed;
-        if (col.y > col.spacing) {
-            col.y -= col.spacing;
-            col.values.shift();
-            col.values.push(randomHexGroup());
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            el.innerHTML = texts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 25);
+        } else {
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, 500);
         }
+    }
+
+    if (el) type();
+
+    // === SWIPER CARROSSEL DE IMAGENS (SEM LEGENDAS) ===
+    new Swiper(".image-swiper", {
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        spaceBetween: 30,
+        slidesPerView: 1,
+        breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        },
+        speed: 800,
+        grabCursor: true,
+        effect: "slide",
     });
-}
 
-function drawScanner() {
-    ctx.save();
-    ctx.strokeStyle = 'rgba(0,242,255,0.1)';
-    ctx.lineWidth = scanner.width;
-    ctx.shadowColor = 'rgba(0,242,255,0.18)';
-    ctx.shadowBlur = 18;
-    ctx.beginPath();
-    ctx.moveTo(0, scanner.y);
-    ctx.lineTo(canvas.width, scanner.y);
-    ctx.stroke();
-    ctx.restore();
-}
+    // === CANVAS MATRIX EFFECT ===
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    const binaryChars = "01";
+    const fontSize = 14;
+    let columns, drops;
 
-function animate() {
-    drawBackground();
-    drawColumns();
-    drawScanner();
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
 
-    scanner.y += scanner.speed;
-    if (scanner.y > canvas.height + 14) scanner.y = -14;
-    requestAnimationFrame(animate);
-}
+    function initDrops() {
+        columns = Math.floor(canvas.width / fontSize);
+        drops = Array(columns).fill(1);
+    }
 
-animate();
+    function drawMatrix() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(5, 11, 20, 0.08)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00e0ff";
+        ctx.font = `${fontSize}px monospace`;
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 0.3;
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+            const x = i * fontSize;
+            const y = drops[i] * fontSize;
+            ctx.fillText(text, x, y);
+            if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+        ctx.globalAlpha = 1;
+    }
+
+    resizeCanvas();
+    initDrops();
+
+    let interval = setInterval(drawMatrix, 100);
+
+    window.addEventListener("resize", () => {
+        resizeCanvas();
+        initDrops();
+        clearInterval(interval);
+        interval = setInterval(drawMatrix, 100);
+    });
+})();
