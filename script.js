@@ -164,4 +164,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startMatrix();
 
+    // =========================
+// BACK TO TOP BUTTON
+// =========================
+const btn = document.getElementById("backToTop");
+
+if (btn) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            btn.style.display = "flex";
+            btn.style.opacity = "1";
+        } else {
+            btn.style.opacity = "0";
+            btn.style.display = "none";
+        }
+    });
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+
 });
