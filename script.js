@@ -109,4 +109,8 @@
         clearInterval(interval);
         interval = setInterval(drawMatrix, 100);
     });
+<<<<<<< HEAD
 })();
+=======
+})();
+>>>>>>> a8fcf73 (feat: adiciona imagens e ajustes finais no site)
