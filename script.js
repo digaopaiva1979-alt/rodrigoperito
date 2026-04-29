@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
        STATE CORE (controle central)
     ========================================================= */
     const state = {
-        typewriterIndex: 0,
+        Index: 0,
         charIndex: 0,
         matrixFrame: null,
         matrixRunning: true

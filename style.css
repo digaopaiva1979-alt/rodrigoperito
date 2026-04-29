@@ -102,6 +102,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 60px;
+    flex-wrap: wrap;
 
     /* evita “pulo” de conteúdo */
     min-height: 420px;
@@ -111,6 +112,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    flex: 1 1 420px;
+    min-width: 0;
 }
 
 .hero-copy h1 {
@@ -142,8 +145,8 @@ body {
    PROFILE MODULE
 ===================================================== */
 .hero-photo {
-    width: 280px;
-    height: 280px;
+    width: min(320px, 100%);
+    height: min(320px, 100%);
     border-radius: 50%;
     overflow: hidden;
 
@@ -182,6 +185,9 @@ body {
     border: 1px solid var(--border);
 
     display: inline-block;
+    width: min(640px, 100%);
+    min-width: 320px;
+    max-width: 100%;
 
     /* FIX PRINCIPAL DO "SUBE E DESCE" */
     min-height: 42px;
@@ -400,26 +406,34 @@ body {
 /* =====================================================
    RESPONSIVE FIX
 ===================================================== */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
     .hero-inner {
         flex-direction: column-reverse;
         text-align: center;
         min-height: auto;
+        gap: 30px;
     }
 
     .hero-photo {
         width: 230px;
         height: 230px;
+        margin: 0 auto;
+    }
+
+    .hero-copy {
+        width: 100%;
+    }
+
+    .typewriter {
+        width: 100%;
+        min-width: auto;
+        white-space: normal;
+        min-height: 48px;
     }
 
     .watermark {
         font-size: 10vw;
         letter-spacing: 6px;
-    }
-
-    .typewriter {
-        white-space: normal;
-        min-height: 48px;
     }
 }
