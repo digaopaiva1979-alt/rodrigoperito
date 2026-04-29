@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================================= */
     const state = {
         Index: 0,
+        typewriterIndex: 0,
         charIndex: 0,
         matrixFrame: null,
         matrixRunning: true
