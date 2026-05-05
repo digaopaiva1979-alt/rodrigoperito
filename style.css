@@ -887,12 +887,14 @@ section {
 .swiper-slide {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 400px; /* altura padrão para todos */
 }
 
 .carousel-image {
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
+    height: 100%;        /* ocupa todo o slide */
+    object-fit: cover;   /* mantém proporção sem distorcer */
     border-radius: var(--radius-md);
     transition: transform 0.4s ease, box-shadow var(--transition-base);
     box-shadow: var(--shadow-sm);
