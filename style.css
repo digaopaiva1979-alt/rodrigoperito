@@ -71,13 +71,15 @@ body {
 /* WATERMARK - MARCA D'ÁGUA CENTRALIZADA E MAIS VISÍVEL */
 /* ===================== */
 .watermark {
-    position: fixed;
-    top: 50%;
+    position: translate;
+    top: 55%; /* leve ajuste visual */
     left: 50%;
     transform: translate(-50%, -50%);
+    
     font-size: clamp(80px, 10vw, 180px);
     font-weight: 900;
-    letter-spacing: 15px;
+    letter-spacing: 10px; /* reduzi um pouco pra melhorar o centro */
+    
     color: rgba(0, 224, 255, 0.08);
     pointer-events: none;
     white-space: nowrap;
@@ -86,10 +88,10 @@ body {
     font-family: 'Inter', monospace;
     text-transform: uppercase;
     text-align: center;
-    width: 100%;
+
+    width: auto; /* 🔥 ESSENCIAL */
     opacity: 1;
 }
-
 /* Ajuste para dispositivos móveis - marca d'água responsiva */
 @media (max-width: 768px) {
     .watermark {
@@ -207,50 +209,54 @@ body {
 }
 
 /* ===================== */
-/* HERO - SEM ESPAÇO NO TOPO */
+/* HERO - AJUSTADA E EQUILIBRADA */
 /* ===================== */
 .hero {
-    min-height: 90vh;
+    min-height: 85vh;
     display: flex;
-    align-items: center;
-    padding: 74px 0 60px;
-    margin-top: 0;
+    align-items: flex-start; /* mais natural visualmente */
+    padding: 60px 0 30px;
     position: relative;
     z-index: 2;
+    overflow: hidden;
 }
 
 .hero-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
+    width: 100%;
+    margin-top: -10px; /* ajuste fino */
 }
 
 .hero-copy {
     flex: 1;
+    max-width: 600px;
 }
 
 .hero-copy h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 900;
     color: var(--primary);
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
     letter-spacing: -0.02em;
 }
 
 .hero-copy h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .hero-tagline {
     color: var(--text-muted);
-    margin: 1.2rem 0 1.8rem;
-    font-size: 1rem;
-    max-width: 500px;
+    margin: 1rem 0 1.4rem;
+    font-size: 0.95rem;
+    max-width: 480px;
+    line-height: 1.5;
 }
 
 /* ===================== */
