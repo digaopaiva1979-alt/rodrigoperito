@@ -880,7 +880,7 @@ section {
 
 .swiper {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;  /* aumentado de 1100px para 1300px */
     margin: 0 auto;
     border-radius: var(--radius-md);
     overflow: hidden;
@@ -890,7 +890,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 380px;
+    height: 420px;  /* aumentado levemente de 380px para 420px para proporção */
 }
 
 .carousel-image {
