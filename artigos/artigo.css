@@ -347,8 +347,9 @@ body {
 
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    bottom: 90px;
+    right: 24px;
+    left: auto;
     background: var(--primary);
     color: var(--bg-dark);
     border: none;
@@ -406,7 +407,7 @@ body {
     
     .share-links { flex-direction: column; gap: 10px; }
     .share-link { justify-content: center; }
-    .back-to-top { bottom: 80px; left: 20px; padding: 8px 14px; }
+    .back-to-top { bottom: 80px; right: 14px; left: auto; padding: 8px 14px; }
 }
 
 @media (max-width: 480px) {

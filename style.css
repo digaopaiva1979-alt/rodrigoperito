@@ -1065,7 +1065,8 @@ section {
 .back-to-top {
     position: fixed;
     bottom: 90px;
-    left: 30px;
+    right: 24px;
+    left: auto;
     background: var(--primary);
     color: var(--bg-dark);
     border: none;
@@ -1199,7 +1200,8 @@ section {
     
     .back-to-top {
         bottom: 80px;
-        left: 20px;
+        right: 14px;
+        left: auto;
         padding: 8px 12px;
         font-size: 0.7rem;
     }
@@ -1258,7 +1260,8 @@ section {
     
     .back-to-top {
         bottom: 75px;
-        left: 14px;
+        right: 14px;
+        left: auto;
         padding: 6px 10px;
         font-size: 0.65rem;
     }
