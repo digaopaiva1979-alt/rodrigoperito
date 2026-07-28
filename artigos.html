@@ -51,6 +51,40 @@
     <!-- CSS PRINCIPAL -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- ESTILOS EXTRAS PARA OS FILTROS -->
+    <style>
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-card, #222);
+            color: var(--text-muted, #aaa);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary, #00e0ff);
+            color: #000;
+            border-color: var(--primary, #00e0ff);
+            box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
+        }
+        .article-card {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .article-card.hide {
+            display: none !important;
+        }
+    </style>
+
     <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
@@ -85,9 +119,6 @@
 
 <body>
 
-<!-- CANVAS DESATIVADO (COMENTADO) -->
-<!-- <canvas id="bg-canvas"></canvas> -->
-
 <div class="watermark">VERITAS IN DATIS</div>
 
 <!-- NAVEGAÇÃO -->
@@ -104,7 +135,7 @@
             <span></span>
         </button>
 
-        <!-- LINKS CORRIGIDOS -->
+        <!-- LINKS -->
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
@@ -139,15 +170,26 @@
 </header>
 
 <!-- ARTIGOS SECTION -->
-<section class="articles-section">
+<section class="articles-section" style="padding: 60px 0;">
     <div class="container">
 
-        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2rem; background: linear-gradient(135deg, #fff, #00e0ff); -webkit-background-clip: text; background-clip: text; color: transparent;">Artigos Técnicos de Perícia Digital</h2>
+        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2rem; background: linear-gradient(135deg, #fff, #00e0ff); -webkit-background-clip: text; background-clip: text; color: transparent;">
+            Artigos Técnicos de Perícia Digital
+        </h2>
+
+        <!-- BOTOES DE FILTRO -->
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterArticles('todos')">Todos</button>
+            <button class="filter-btn" onclick="filterArticles('custodia')">Cadeia de Custódia</button>
+            <button class="filter-btn" onclick="filterArticles('logs')">Análise de Logs</button>
+            <button class="filter-btn" onclick="filterArticles('fraudes')">Fraudes & Invasões</button>
+            <button class="filter-btn" onclick="filterArticles('laudos')">Legislação & Laudos</button>
+        </div>
 
         <div class="articles-grid">
 
             <!-- ARTIGO 1: Acesso Não Autorizado -->
-            <article class="article-card">
+            <article class="article-card" data-category="fraudes logs">
                 <div class="article-image">
                     <img src="img/Acesso_Não_Autorizado.jpeg" alt="Identificação de Acesso Não Autorizado" loading="lazy" decoding="async">
                 </div>
@@ -159,7 +201,7 @@
             </article>
 
             <!-- ARTIGO 2: Análise de Logs -->
-            <article class="article-card">
+            <article class="article-card" data-category="logs">
                 <div class="article-image">
                     <img src="img/analise_logs.jpeg" alt="Análise Forense de Logs" loading="lazy" decoding="async">
                 </div>
@@ -171,7 +213,7 @@
             </article>
 
             <!-- ARTIGO 3: Cadeia de Custódia -->
-            <article class="article-card">
+            <article class="article-card" data-category="custodia">
                 <div class="article-image">
                     <img src="img/Cadeia_de_Custódia_Digital.jpeg" alt="Cadeia de Custódia Digital" loading="lazy" decoding="async">
                 </div>
@@ -183,7 +225,7 @@
             </article>
 
             <!-- ARTIGO 4: Erros Comuns -->
-            <article class="article-card">
+            <article class="article-card" data-category="custodia laudos">
                 <div class="article-image">
                     <img src="img/Erros_em_Evidências_Digitais.jpeg" alt="Erros em Evidências Digitais" loading="lazy" decoding="async">
                 </div>
@@ -195,7 +237,7 @@
             </article>
 
             <!-- ARTIGO 5: Valor Jurídico da Evidência Digital -->
-            <article class="article-card">
+            <article class="article-card" data-category="custodia laudos">
                 <div class="article-image">
                     <img src="img/img_4606.webp" alt="Valor Jurídico da Evidência Digital" loading="lazy" decoding="async">
                 </div>
@@ -207,7 +249,7 @@
             </article>
 
             <!-- ARTIGO 6: Perícia Digital em Fraudes e Crimes Cibernéticos -->
-            <article class="article-card">
+            <article class="article-card" data-category="fraudes">
                 <div class="article-image">
                     <img src="img/img_4608.webp" alt="Perícia Digital em Fraudes e Crimes Cibernéticos" loading="lazy" decoding="async">
                 </div>
@@ -219,7 +261,7 @@
             </article>
 
             <!-- ARTIGO 7: Fraudes Digitais -->
-            <article class="article-card">
+            <article class="article-card" data-category="fraudes">
                 <div class="article-image">
                     <img src="img/Fraudes_Digitais.jpeg" alt="Identificação de Manipulações em Fraudes Digitais" loading="lazy" decoding="async">
                 </div>
@@ -231,7 +273,7 @@
             </article>
 
             <!-- ARTIGO 8: Análise Forense de Logs -->
-            <article class="article-card">
+            <article class="article-card" data-category="logs">
                 <div class="article-image">
                     <img src="img/img_4607.webp" alt="Reconstrução de Eventos com Logs" loading="lazy" decoding="async">
                 </div>
@@ -242,10 +284,8 @@
                 </div>
             </article>
 
-            <!-- ARTIGO 9: Recuperação de Dados (Limites Técnicos) - REMOVIDO - Mantido apenas o padronizado -->
-            
             <!-- ARTIGO 10: Recuperação de Dados e Validade Jurídica -->
-            <article class="article-card">
+            <article class="article-card" data-category="laudos custodia">
                 <div class="article-image">
                     <img src="img/Recuperação_de_Dados.jpeg" alt="Validade Jurídica da Recuperação de Dados" loading="lazy" decoding="async">
                 </div>
@@ -257,7 +297,7 @@
             </article>
 
             <!-- ARTIGO 11: Perícia Digital no Processo Judicial -->
-            <article class="article-card">
+            <article class="article-card" data-category="laudos">
                 <div class="article-image">
                     <img src="img/pericia_em_processos.jpeg" alt="Perícia Digital no Processo Judicial" loading="lazy" decoding="async">
                 </div>
@@ -269,7 +309,7 @@
             </article>
 
             <!-- ARTIGO 12: Validade do Laudo Pericial Digital -->
-            <article class="article-card">
+            <article class="article-card" data-category="laudos">
                 <div class="article-image">
                     <img src="img/Laudo_Pericial_Digital.jpeg" alt="Validade do Laudo Pericial Digital" loading="lazy" decoding="async">
                 </div>
@@ -332,6 +372,31 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
+
+<!-- SCRIPT DE FILTRO DE ARTIGOS -->
+<script>
+function filterArticles(category) {
+    // Atualiza classe ativa dos botões
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // Filtra os cards
+    const cards = document.querySelectorAll('.article-card');
+    cards.forEach(card => {
+        if (category === 'todos') {
+            card.classList.remove('hide');
+        } else {
+            const categories = card.getAttribute('data-category');
+            if (categories && categories.includes(category)) {
+                card.classList.remove('hide');
+            } else {
+                card.classList.add('hide');
+            }
+        }
+    });
+}
+</script>
 
 <!-- BOTÃO WHATSAPP FIXO -->
 <a href="https://wa.me/5511991001952?text=Olá,%20gostaria%20de%20informações%20sobre%20perícia%20digital" 
