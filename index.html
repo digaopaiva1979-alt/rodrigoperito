@@ -16,7 +16,7 @@
     <!-- CANONICAL -->
     <link rel="canonical" href="https://rodrigoperito.vercel.app/">
 
-    <!-- OPEN GRAPH (Facebook, LinkedIn, WhatsApp) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Rodrigo A. Paiva - Perito Judicial em Computação Forense">
     <meta property="og:description" content="Análise forense, perícia digital e investigação técnica com validade jurídica.">
@@ -30,7 +30,7 @@
     <meta name="twitter:description" content="Perícia digital e computação forense com validade jurídica.">
     <meta name="twitter:image" content="https://rodrigoperito.vercel.app/img/preview.jpg">
 
-    <!-- PERFORMANCE (DNS PREFETCH & PRECONNECT) -->
+    <!-- PERFORMANCE -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -51,15 +51,74 @@
     <!-- CSS PRINCIPAL -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- ESTILOS EXTRAS PARA O FAQ ACCORDION -->
+    <style>
+        .faq-section {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-card, rgba(255, 255, 255, 0.1));
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: var(--primary, #00e0ff);
+        }
+        .faq-question {
+            width: 100%;
+            padding: 20px;
+            background: none;
+            border: none;
+            outline: none;
+            text-align: left;
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .faq-question i {
+            color: var(--primary, #00e0ff);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .faq-answer p {
+            padding: 0 20px 20px 20px;
+            color: var(--text-muted, #ccc);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    </style>
+
     <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
     <text y='75' font-size='75'>⚖</text></svg>">
 
-    <!-- THEME COLOR (mobile) -->
+    <!-- THEME COLOR -->
     <meta name="theme-color" content="#0a0a0a">
 
-    <!-- STRUCTURED DATA (SEO AVANÇADO) -->
+    <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -95,26 +154,31 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Rodrigo A. Paiva - Perito Judicial",
-        "url": "https://rodrigoperito.vercel.app/",
-        "description": "Site oficial do perito judicial Rodrigo A. Paiva, especialista em computação forense.",
-        "author": {
-            "@type": "Person",
-            "name": "Rodrigo A. Paiva"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+        "@type": "FAQPage",
+        "mainEntity": [
             {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://rodrigoperito.vercel.app/"
+                "@type": "Question",
+                "name": "Qual a diferença entre Perito Judicial e Assistente Técnico?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "O Perito Judicial é nomeado pelo juiz e atua de forma totalmente imparcial. Já o Assistente Técnico é contratado por uma das partes para acompanhar a perícia, formular quesitos e emitir um parecer técnico divergente ou concordante."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Como é mantida a integridade da evidência digital?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Através do cumprimento rigoroso da Cadeia de Custódia (Lei 13.964/19), utilizando bloqueadores de escrita de hardware/software e gerando resumos criptográficos (Hashes SHA-256) antes e depois da cópia forense."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Print screen simples de celular tem validade jurídica?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prints comuns podem ser facilmente impugnados na Justiça por falta de metadados e risco de adulteração. Para ter valor probatório robusto, a conversa deve passar por preservação forense com coleta de código-fonte e cálculo de hash."
+                }
             }
         ]
     }
@@ -122,11 +186,7 @@
 
 </head>
 
-
 <body>
-
-<!-- CANVAS REMOVIDO COMENTADO -->
-<!-- <canvas id="bg-canvas"></canvas> -->
 
 <div class="watermark">VERITAS IN DATIS</div>
 
@@ -146,7 +206,7 @@
 
         <!-- LINKS -->
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="contato.html">Contato</a></li>
@@ -156,7 +216,7 @@
     </div>
 </nav>
 
-
+<!-- HERO -->
 <header class="hero">
     <div class="container hero-inner">
 
@@ -179,6 +239,7 @@
     </div>
 </header>
 
+<!-- SOBRE RESUMIDO -->
 <section class="about">
     <div class="container">
 
@@ -254,6 +315,61 @@
                 <i class="fas fa-server specialty-icon"></i>
                 <h3>Forense em Servidores</h3>
                 <p>Análise de infraestrutura crítica e ambientes corporativos.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SEÇÃO DE PERGUNTAS FREQUENTES (FAQ) -->
+<section class="faq-section">
+    <div class="container">
+
+        <div class="section-title">
+            <span>Perguntas Frequentes (FAQ)</span>
+        </div>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Qual a diferença entre Perito Judicial e Assistente Técnico?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>O Perito Judicial é nomeado diretamente pelo Juiz para atuar de forma neutra e imparcial. Já o Assistente Técnico é contratado por uma das partes envolvidas no processo para acompanhar a perícia, formular quesitos técnicos e elaborar pareceres que garantam o direito de ampla defesa.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Como é garantida a integridade da prova digital?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Através da aplicação rigorosa da Cadeia de Custódia (normas ISO/IEC 27037 e arts. 158-A a 158-F do CPP). Utilizam-se bloqueadores de escrita de hardware e software para extração e gera-se um hash criptográfico (SHA-256) no momento da coleta para demonstrar que a prova não foi alterada.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Um "Print Screen" comum serve como prova em um processo?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Prints simples têm baixo valor probatório, pois podem ser editados facilmente. Para garantir validade jurídica plena, recomenda-se a realização de constatação pericial com extração de metadados, código-fonte e preservação em mídia segura com hashing.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>O perito atua fora do estado de São Paulo?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim. Embora a atuação presencial principal seja no TJSP (São Paulo e Guarulhos), laudos, pareceres de assistência técnica e análises de evidências extraídas digitalmente podem ser realizados para qualquer região do Brasil.</p>
+                </div>
             </div>
 
         </div>
@@ -354,6 +470,30 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 
+<!-- SCRIPT ACCORDION DO FAQ -->
+<script>
+function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    
+    // Fecha os outros que estiverem abertos
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+        }
+    });
+
+    // Alterna o atual
+    faqItem.classList.toggle('active');
+    if (faqItem.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+        answer.style.maxHeight = null;
+    }
+}
+</script>
+
 <!-- BOTÃO WHATSAPP FIXO -->
 <a href="https://wa.me/5511991001952?text=Olá,%20gostaria%20de%20informações%20sobre%20perícia%20digital" 
    class="whatsapp-float" target="_blank" rel="noopener noreferrer">
@@ -367,4 +507,3 @@
 
 </body>
 </html>
-
