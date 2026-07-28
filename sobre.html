@@ -40,10 +40,10 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- FONTE -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -51,10 +51,181 @@
     <!-- CSS PRINCIPAL -->
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        /* ==========================================================
+           ESTILOS: BANNER DE CONFORMIDADE E SELOS DE GARANTIA TÉCNICA
+           ========================================================== */
+        .compliance-banner {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .compliance-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .compliance-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            background: rgba(0, 180, 216, 0.1);
+            color: #00b4d8;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-header h2 {
+            font-size: 2.2rem;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .compliance-header p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .compliance-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.2rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .compliance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00b4d8, #0077b6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .compliance-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 180, 216, 0.35);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .compliance-card:hover::before {
+            opacity: 1;
+        }
+
+        .compliance-icon-wrap {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 180, 216, 0.08);
+            border: 1px solid rgba(0, 180, 216, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            color: #00b4d8;
+            font-size: 1.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .compliance-card:hover .compliance-icon-wrap {
+            transform: scale(1.08);
+            background: rgba(0, 180, 216, 0.15);
+        }
+
+        .compliance-card h3 {
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .compliance-card .compliance-sub {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compliance-card p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ESTILOS: SEÇÃO SOBRE DETALHADO */
+        .about-detailed {
+            padding: 5rem 0;
+            background: #0a0a0a;
+        }
+
+        .about-card-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .about-card-box:hover {
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .about-card-box h3 {
+            font-size: 1.4rem;
+            color: #00b4d8;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-card-box p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card-box p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
     <!-- FAVICON -->
-    <link rel="icon" href="data:image/svg+xml,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-    <text y='75' font-size='75'>⚖</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>⚖</text></svg>">
 
     <!-- THEME COLOR -->
     <meta name="theme-color" content="#0a0a0a">
@@ -100,9 +271,6 @@
 
 <body>
 
-<!-- CANVAS DESATIVADO (COMENTADO) -->
-<!-- <canvas id="bg-canvas"></canvas> -->
-
 <div class="watermark">VERITAS IN DATIS</div>
 
 <!-- NAVEGAÇÃO -->
@@ -110,7 +278,7 @@
     <div class="container nav-container">
 
         <!-- LOGO -->
-        <a href="/" class="nav-logo">RODRIGO A. PAIVA</a>
+        <a href="index.html" class="nav-logo">RODRIGO A. PAIVA</a>
 
         <!-- BOTÃO MOBILE -->
         <button class="nav-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
@@ -119,10 +287,10 @@
             <span></span>
         </button>
 
-        <!-- LINKS CORRIGIDOS -->
+        <!-- LINKS DE NAVEGAÇÃO -->
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="sobre.html" class="active">Sobre</a></li>
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="contato.html">Contato</a></li>
             <li><a href="artigos.html">Artigos</a></li>
@@ -142,7 +310,7 @@
 
             <p class="hero-tagline">
                 Profissional com formação acadêmica sólida e experiência prática em perícia digital, 
-                atuando com rigor metodológico e conformidade legal.
+                atuando com rigor metodológico e total conformidade legal para fornecer provas técnicas inquestionáveis.
             </p>
         </div>
 
@@ -153,37 +321,95 @@
     </div>
 </header>
 
+<!-- BANNER DE CONFORMIDADE E GARANTIA TÉCNICA -->
+<section class="compliance-banner">
+    <div class="container">
+
+        <div class="compliance-header">
+            <span class="compliance-badge-tag"><i class="fas fa-award"></i> Rigor e Garantia Técnica</span>
+            <h2>Conformidade Normativa & Padrões Internacionais</h2>
+            <p>Todas as perícias e análises seguem rigorosamente as normas técnicas internacionais e a legislação brasileira aplicável, assegurando total inquestionabilidade e aceitação judicial das provas.</p>
+        </div>
+
+        <div class="compliance-grid">
+
+            <!-- ISO/IEC 27037 -->
+            <div class="compliance-card">
+                <div class="compliance-icon-wrap">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <h3>ISO/IEC 27037</h3>
+                <div class="compliance-sub">Diretrizes Forenses</div>
+                <p>Padronização internacional para identificação, coleta, aquisição e preservação de evidências digitais sem degradação ou contaminação.</p>
+            </div>
+
+            <!-- CADEIA DE CUSTÓDIA CPP -->
+            <div class="compliance-card">
+                <div class="compliance-icon-wrap">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3>Cadeia de Custódia</h3>
+                <div class="compliance-sub">Art. 158-A a 158-F do CPP</div>
+                <p>Rastreabilidade ininterrupta do material probatório, com geração de hashes criptográficos (SHA-256 / MD5) para prova de integridade.</p>
+            </div>
+
+            <!-- LGPD -->
+            <div class="compliance-card">
+                <div class="compliance-icon-wrap">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Conformidade LGPD</h3>
+                <div class="compliance-sub">Lei nº 13.709/2018</div>
+                <p>Tratamento legítimo de dados pessoais em investigações periciais, garantindo sigilo contratual e proteção a dados não pertinentes ao processo.</p>
+            </div>
+
+            <!-- ACREDITAÇÃO TJSP -->
+            <div class="compliance-card">
+                <div class="compliance-icon-wrap">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3>Acreditação TJSP</h3>
+                <div class="compliance-sub">Perito Judicial Cadastrado</div>
+                <p>Auxiliar da Justiça cadastrado no Tribunal de Justiça do Estado de São Paulo, atuante nas Varas Cíveis, Criminais e Trabalhistas.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 <!-- ABOUT DETALHADO -->
 <section class="about-detailed">
     <div class="container">
 
-        <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem;">Formação e Experiência</h2>
+        <div class="about-card-box">
+            <h3><i class="fas fa-graduation-cap"></i> Formação e Experiência</h3>
+            <p>
+                Possuo formação em Tecnologia da Informação com especialização em Segurança Cibernética e Computação Forense. 
+                Minha atuação profissional se concentra na aplicação de metodologias científicas para a análise de evidências digitais, 
+                assegurando a integridade, autenticidade e validade jurídica dos laudos produzidos.
+            </p>
+            <p>
+                Atuo como perito judicial nomeado pelo Tribunal de Justiça de São Paulo (TJSP), 
+                com vasta experiência em processos judiciais e extrajudiciais, sempre priorizando a cadeia de custódia 
+                e os princípios da LGPD (Lei Geral de Proteção de Dados).
+            </p>
+        </div>
 
-        <p style="color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8;">
-            Possuo formação em Tecnologia da Informação com especialização em Segurança Cibernética e Computação Forense. 
-            Minha atuação profissional se concentra na aplicação de metodologias científicas para a análise de evidências digitais, 
-            assegurando a integridade, autenticidade e validade jurídica dos laudos produzidos.
-        </p>
+        <div class="about-card-box">
+            <h3><i class="fas fa-microscope"></i> Compromisso com a Excelência Técnica</h3>
+            <p>
+                Meu trabalho é fundamentado em práticas reconhecidas internacionalmente, como as diretrizes do NIST (National Institute of Standards and Technology)
+                e ISO/IEC 27037, garantindo que todas as análises sejam realizadas com rigor metodológico, precisão científica e reprodutibilidade.
+            </p>
+        </div>
 
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
-            Atuo como perito judicial nomeado pelo Tribunal de Justiça de São Paulo (TJSP), 
-            com experiência em processos judiciais e extrajudiciais, sempre priorizando a cadeia de custódia 
-            e os princípios da LGPD (Lei Geral de Proteção de Dados).
-        </p>
-
-        <h3 style="font-size: 1.5rem; color: var(--primary); margin: 2rem 0 1rem;">Compromisso com a Excelência Técnica</h3>
-
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
-            Meu trabalho é fundamentado em práticas reconhecidas internacionalmente, como as diretrizes do NIST 
-            e ISO/IEC 27037, garantindo que todas as análises sejam realizadas com precisão e reprodutibilidade.
-        </p>
-
-        <h3 style="font-size: 1.5rem; color: var(--primary); margin: 2rem 0 1rem;">Área de Atuação</h3>
-
-        <p style="color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8;">
-            Atendo clientes em São Paulo e região metropolitana, incluindo Guarulhos, com possibilidade de atuação 
-            em outros estados mediante acordo prévio.
-        </p>
+        <div class="about-card-box">
+            <h3><i class="fas fa-location-dot"></i> Área de Atuação</h3>
+            <p>
+                Atendo presencialmente em São Paulo e toda a região metropolitana (incluindo Guarulhos e ABC), além de oferecer consultoria e assistência técnica remota para todo o território nacional e atuação em outros estados mediante acordo prévio.
+            </p>
+        </div>
 
     </div>
 </section>
@@ -209,7 +435,7 @@
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
 
-            <a href="https://www.linkedin.com/in/rodrigo-a-33aa613b5" class="button" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/rodrigo-a-de-paiva-33aa613b5" class="button" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
 
@@ -238,7 +464,7 @@
 
 <!-- BOTÃO WHATSAPP FIXO -->
 <a href="https://wa.me/5511991001952?text=Olá,%20gostaria%20de%20informações%20sobre%20perícia%20digital" 
-   class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+   class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
