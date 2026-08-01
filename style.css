@@ -2236,3 +2236,27 @@ textarea.form-control {
 .technical-card {
     animation: fadeUp .6s ease forwards;
 }
+/* =====================================================
+   FOOTER - COPYRIGHT
+   ===================================================== */
+
+.footer-legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: .75rem;
+}
+
+.footer-legal span:first-child {
+    font-size: .7rem;
+    opacity: .7;
+}
+
+.footer-copy {
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    font-size: .8rem;
+}
