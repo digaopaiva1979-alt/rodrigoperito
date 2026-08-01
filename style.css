@@ -2155,20 +2155,72 @@ textarea.form-control {
     justify-content: center;
     text-decoration: none;
     z-index: 998;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.back-to-top.visible {
+/* Estado VISÍVEL (classe 'show' usada no script.js) */
+.back-to-top.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
+/* HOVER */
 .back-to-top:hover {
     background: var(--primary-soft);
     border-color: var(--primary);
     color: var(--primary);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 224, 255, 0.15);
+}
+
+/* Ícone dentro do botão */
+.back-to-top i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover i {
+    transform: translateY(-2px);
+}
+
+/* Texto escondido (mantido para acessibilidade) */
+.back-to-top .back-to-top-text {
+    display: none;
+}
+
+/* =====================================================
+   RESPONSIVIDADE DO BOTÃO VOLTAR AO TOPO
+   ===================================================== */
+
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 90px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .back-to-top i {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 85px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-to-top i {
+        font-size: 0.9rem;
+    }
 }
