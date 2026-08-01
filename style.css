@@ -2,7 +2,8 @@
    RODRIGO PERITO DIGITAL
    STYLE.CSS
    DESIGN SYSTEM - CYBER FORENSICS
-    ===================================================== */
+   VERSÃO COMPLETA CORRIGIDA
+   ===================================================== */
 
 
 /* =====================================================
@@ -231,7 +232,7 @@ section {
 
 
 /* =====================================================
-   MENU MOBILE
+   MENU MOBILE (CORRIGIDO)
    ===================================================== */
 
 .nav-toggle {
@@ -239,14 +240,126 @@ section {
     background: none;
     border: 0;
     cursor: pointer;
+    flex-direction: column;
+    padding: 5px;
+    z-index: 1001;
 }
 
 .nav-toggle span {
     display: block;
     width: 26px;
     height: 2px;
-    margin: 6px;
+    margin: 4px 0;
     background: var(--text-light);
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+/* Animação do hambúrguer para X quando ativo */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE - MENU MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(1, 6, 12, .98);
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 5px;
+        border-left: 1px solid var(--border-subtle);
+        transition: right .35s ease;
+        pointer-events: none;
+        overflow-y: auto;
+        align-items: stretch;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+        pointer-events: auto;
+    }
+
+    /* Overlay para fechar ao clicar fora */
+    .nav-links.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .6);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 10px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-light);
+        transition: var(--transition);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--primary);
+        background: var(--primary-soft);
+        border-radius: var(--radius-sm);
+        padding-left: 16px;
+    }
+}
+
+/* Mobile pequeno - ajuste do menu */
+@media (max-width: 480px) {
+    .nav-links {
+        width: 85%;
+        padding: 70px 20px 20px;
+    }
+    
+    .nav-links a {
+        padding: 12px 8px;
+        font-size: .95rem;
+    }
 }
 
 
@@ -1839,27 +1952,80 @@ textarea.form-control {
     justify-content: center;
     text-decoration: none;
     z-index: 998;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.back-to-top.visible {
+/* Estado VISÍVEL (classe 'show' usada no script.js) */
+.back-to-top.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
+/* HOVER */
 .back-to-top:hover {
     background: var(--primary-soft);
     border-color: var(--primary);
     color: var(--primary);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 224, 255, 0.15);
+}
+
+/* Ícone dentro do botão */
+.back-to-top i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover i {
+    transform: translateY(-2px);
+}
+
+/* Texto escondido (mantido para acessibilidade) */
+.back-to-top .back-to-top-text {
+    display: none;
 }
 
 
 /* =====================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE DO BOTÃO VOLTAR AO TOPO
+   ===================================================== */
+
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 90px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .back-to-top i {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 85px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-to-top i {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE GERAL
    ===================================================== */
 
 /* Tablets e telas menores */
@@ -1913,59 +2079,10 @@ textarea.form-control {
     .articles-grid {
         grid-template-columns: 1fr 1fr;
     }
-
-    .nav-links {
-        gap: 20px;
-    }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(1, 6, 12, .98);
-        backdrop-filter: blur(18px);
-        flex-direction: column;
-        padding: 20px 0;
-        gap: 0;
-        border-bottom: 1px solid var(--border-subtle);
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: transform .3s ease;
-        pointer-events: none;
-    }
-
-    .nav-links.open {
-        transform: scaleY(1);
-        pointer-events: auto;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 14px 20px;
-        font-size: 1rem;
-    }
-
-    .nav-links a::after {
-        display: none;
-    }
-
-    .nav-links a.active {
-        background: var(--primary-soft);
-    }
-
     .container {
         width: 94%;
     }
@@ -2092,14 +2209,6 @@ textarea.form-control {
         letter-spacing: 6px;
     }
 
-    .back-to-top {
-        bottom: 85px;
-        right: 15px;
-        width: 42px;
-        height: 42px;
-        font-size: .8rem;
-    }
-
     .whatsapp-float {
         bottom: 20px;
         right: 15px;
@@ -2134,93 +2243,4 @@ textarea.form-control {
 .quantum-card,
 .technical-card {
     animation: fadeUp .6s ease forwards;
-}
-
-/* =====================================================
-   BOTÃO VOLTAR AO TOPO
-   ===================================================== */
-
-.back-to-top {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 48px;
-    height: 48px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    border-radius: 50%;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    z-index: 998;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px) scale(0.8);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Estado VISÍVEL (classe 'show' usada no script.js) */
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-/* HOVER */
-.back-to-top:hover {
-    background: var(--primary-soft);
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 25px rgba(0, 224, 255, 0.15);
-}
-
-/* Ícone dentro do botão */
-.back-to-top i {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.back-to-top:hover i {
-    transform: translateY(-2px);
-}
-
-/* Texto escondido (mantido para acessibilidade) */
-.back-to-top .back-to-top-text {
-    display: none;
-}
-
-/* =====================================================
-   RESPONSIVIDADE DO BOTÃO VOLTAR AO TOPO
-   ===================================================== */
-
-/* Tablets e telas médias */
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 90px;
-        right: 20px;
-        width: 44px;
-        height: 44px;
-    }
-    
-    .back-to-top i {
-        font-size: 1rem;
-    }
-}
-
-/* Mobile pequeno */
-@media (max-width: 480px) {
-    .back-to-top {
-        bottom: 85px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .back-to-top i {
-        font-size: 0.9rem;
-    }
 }
