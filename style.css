@@ -224,7 +224,7 @@ section {
 
 
 /* =====================================================
-   MENU MOBILE (CORRIGIDO)
+   MENU MOBILE 
    ===================================================== */
 
 .nav-toggle {
@@ -440,18 +440,33 @@ section {
     border: 3px solid var(--primary);
     box-shadow: 0 0 35px var(--primary-glow);
     flex-shrink: 0;
+    position: relative;
 }
 
 .photo-frame {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+
+    /* Mantém o rosto centralizado */
+    object-position: center 22%;
+
+    /* Afasta um pouco o enquadramento */
+    transform: scale(0.88);
+
+    /* Evita deformação */
+    display: block;
+
+    /* Suaviza o enquadramento */
+    transition: transform 0.3s ease;
 }
 
 
