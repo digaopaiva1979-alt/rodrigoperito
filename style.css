@@ -196,11 +196,16 @@ section {
 }
 
 .nav-logo {
+    display: inline-flex;
+    align-items: center;
     color: var(--text-light);
     text-decoration: none;
     font-weight: 800;
-    letter-spacing: 1.2px;
-    font-size: 1rem;
+    letter-spacing: .10em;
+    font-size: clamp(.66rem, .9vw, .9rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
     transition: var(--transition);
 }
 
