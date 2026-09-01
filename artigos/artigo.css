@@ -63,6 +63,8 @@ select {
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 70px;
+    height: auto;
     background: rgba(1, 6, 12, 0.95);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
@@ -74,10 +76,12 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
+    height: auto;
     width: 90%;
     max-width: 1280px;
     margin: 0 auto;
+    padding: 6px 0;
 }
 
 .nav-logo {
@@ -87,12 +91,14 @@ select {
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+    padding: 5px 0;
     transition: var(--transition-fast);
 }
 
 .logo-img {
-    height: 42px !important;
+    height: 60px !important;
     width: auto !important;
+    max-height: 100%;
     max-width: 100%;
     display: block !important;
     object-fit: contain;
@@ -448,17 +454,28 @@ select {
         overflow: hidden;
     }
 
+    .nav {
+        min-height: 78px;
+    }
+
+    .nav-container {
+        min-height: 78px;
+        padding: 8px 0;
+    }
+
     .nav-logo {
         display: flex !important;
         align-items: center;
         visibility: visible !important;
+        padding: 0;
     }
 
     .logo-img {
         display: block !important;
         visibility: visible !important;
-        height: 42px !important;
+        height: 55px !important;
         width: auto !important;
+        max-height: 100%;
         z-index: 2;
     }
 
