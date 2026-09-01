@@ -180,7 +180,7 @@ section {
     width: 100%;
     min-height: 70px;
     height: 70px;
-    background: rgba(1, 6, 12, .92);
+    background: rgba(10, 17, 28, 0.92);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
     z-index: 1000;
@@ -203,16 +203,20 @@ section {
 .nav-logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
     background: none !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     padding: 0 !important;
+    margin: 0;
     text-decoration: none;
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 .logo-img {
@@ -229,6 +233,7 @@ section {
     box-shadow: none !important;
     border: none !important;
     filter: none;
+    mix-blend-mode: screen;
 }
 
 .logo-text {

@@ -89,16 +89,20 @@ select {
 .nav-logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
     background: none !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     padding: 0 !important;
+    margin: 0;
     text-decoration: none;
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+    line-height: 1;
+    vertical-align: middle;
     transition: var(--transition-fast);
 }
 
@@ -116,6 +120,7 @@ select {
     box-shadow: none !important;
     border: none !important;
     filter: none;
+    mix-blend-mode: screen;
 }
 
 .logo-text {
