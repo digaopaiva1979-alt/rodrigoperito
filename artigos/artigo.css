@@ -63,9 +63,9 @@ select {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 70px;
-    height: 70px;
-    background: rgba(1, 6, 12, 0.95);
+    min-height: 82px;
+    height: 82px;
+    background: rgba(10, 17, 28, 0.92);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
@@ -78,12 +78,12 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 70px;
+    min-height: 82px;
     height: 100%;
     width: 90%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 6px 0;
+    padding: 8px 0;
 }
 
 .nav-logo {
@@ -107,7 +107,7 @@ select {
 }
 
 .logo-img {
-    height: 40px !important;
+    height: 52px !important;
     width: auto !important;
     max-height: 100%;
     max-width: 100%;
