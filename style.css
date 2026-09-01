@@ -209,7 +209,7 @@ section {
 }
 
 .logo-img {
-    height: 60px !important;
+    height: 40px !important;
     width: auto !important;
     max-height: 100%;
     max-width: 100%;
@@ -327,14 +327,16 @@ section {
     .nav-logo {
         display: flex !important;
         align-items: center;
+        justify-content: center;
         visibility: visible !important;
         padding: 0;
+        margin-right: auto;
     }
 
     .logo-img {
         display: block !important;
         visibility: visible !important;
-        height: 55px !important;
+        height: 40px !important;
         width: auto !important;
         max-height: 100%;
         z-index: 2;
