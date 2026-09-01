@@ -24,6 +24,11 @@ body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4 {
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
 ::selection {
     background: rgba(0, 224, 255, .20);
     color: var(--text-white);
@@ -220,6 +225,10 @@ section {
     transition: var(--transition);
 }
 
+.nav-links a:hover {
+    transform: translateY(-1px);
+}
+
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -405,6 +414,7 @@ section {
     color: var(--text-muted);
     font-size: 1.1rem;
     font-weight: 500;
+    max-width: 660px;
     margin-bottom: 20px;
 }
 
@@ -587,6 +597,11 @@ section {
     box-shadow: var(--shadow-glow);
 }
 
+.specialty-card:hover .specialty-icon {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(0, 224, 255, .15);
+}
+
 .specialty-icon {
     width: 55px;
     height: 55px;
@@ -599,6 +614,7 @@ section {
     color: var(--primary);
     font-size: 1.5rem;
     margin-bottom: 20px;
+    transition: all var(--transition);
 }
 
 .specialty-card h3 {
@@ -2129,6 +2145,11 @@ select.form-control option[value=""] {
 
     .hero-copy h1 {
         font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    .hero-copy h2 {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-actions {
