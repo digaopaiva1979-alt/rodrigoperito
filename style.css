@@ -196,24 +196,23 @@ section {
 }
 
 .nav-logo {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    color: var(--text-light);
     text-decoration: none;
-    font-weight: 800;
-    letter-spacing: .10em;
-    font-size: clamp(.66rem, .9vw, .9rem);
-    line-height: 1.2;
-    text-transform: uppercase;
-    white-space: nowrap;
-    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
 }
 
 .logo-img {
-    height: 40px;
-    width: auto;
-    display: block;
+    height: 42px !important;
+    width: auto !important;
+    max-width: 100%;
+    display: block !important;
     object-fit: contain;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.2));
 }
 
 .nav-logo:hover {
@@ -309,6 +308,20 @@ section {
 @media (max-width: 768px) {
     body.menu-open {
         overflow: hidden;
+    }
+
+    .nav-logo {
+        display: flex !important;
+        align-items: center;
+        visibility: visible !important;
+    }
+
+    .logo-img {
+        display: block !important;
+        visibility: visible !important;
+        height: 42px !important;
+        width: auto !important;
+        z-index: 2;
     }
 
     .nav-toggle {
