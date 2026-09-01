@@ -446,8 +446,8 @@ section {
 .photo-frame {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     border-radius: 50%;
+    overflow: hidden;
     position: relative;
 }
 
@@ -455,18 +455,8 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    /* Mantém o rosto centralizado */
-    object-position: center 22%;
-
-    /* Afasta um pouco o enquadramento */
-    transform: scale(0.88);
-
-    /* Evita deformação */
+    object-position: center 38%;
     display: block;
-
-    /* Suaviza o enquadramento */
-    transition: transform 0.3s ease;
 }
 
 
