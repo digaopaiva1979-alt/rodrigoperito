@@ -115,7 +115,8 @@ select {
     box-shadow: none !important;
     outline: none !important;
     color: inherit;
-    opacity: 0.96;
+    opacity: 0.9;
+    transform: none;
 }
 
 .logo-img {
