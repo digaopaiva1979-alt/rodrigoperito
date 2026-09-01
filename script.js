@@ -4,9 +4,11 @@ function toggleMenu() {
 
     if (!navToggle || !navLinks) return;
 
-    const isOpen = navLinks.classList.toggle('active');
+    const isOpen = !navLinks.classList.contains('active');
+    navLinks.classList.toggle('active', isOpen);
     navToggle.classList.toggle('active', isOpen);
     navToggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
 
         navToggle.addEventListener('click', function(event) {
+            event.preventDefault();
             event.stopPropagation();
             toggleMenu();
         });
@@ -31,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
                 navToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
             });
         });
 
@@ -40,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
                 navToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
             }
         });
     }

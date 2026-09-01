@@ -209,6 +209,13 @@ section {
     transition: var(--transition);
 }
 
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
 .nav-logo:hover {
     color: var(--primary);
 }
@@ -300,8 +307,14 @@ section {
    ===================================================== */
 
 @media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+
     .nav-toggle {
         display: flex;
+        position: relative;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -371,6 +384,18 @@ section {
         background: var(--primary-soft);
         border-radius: var(--radius-sm);
         padding-left: 16px;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+    .nav-toggle {
+        z-index: 1000;
+    }
+
+    .nav-links {
+        z-index: 9999;
+        width: 82%;
+        max-width: 360px;
     }
 }
 
