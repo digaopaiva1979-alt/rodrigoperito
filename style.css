@@ -246,7 +246,7 @@ section {
     border-radius: 0 !important;
     box-shadow: none !important;
     border: none !important;
-    filter: drop-shadow(0 0 8px rgba(0, 224, 255, 0.14));
+    filter: none;
     mix-blend-mode: normal;
 }
 
