@@ -1,148 +1,57 @@
 ```html
 <!DOCTYPE html>
+
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-
-    <!-- RESPONSIVO -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO PRINCIPAL -->
-    <title>Artigos | Rodrigo A. Paiva - Perito Judicial em Computação Forense</title>
-
-    <meta
-        name="description"
-        content="Artigos técnicos de Rodrigo A. Paiva sobre perícia digital, computação forense, cadeia de custódia, evidências digitais e segurança cibernética."
-    >
-
-    <meta name="author" content="Rodrigo A. Paiva">
-
-    <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    >
-
-    <!-- CANONICAL -->
-    <link
-        rel="canonical"
-        href="https://rodrigoperito.vercel.app/artigos.html"
-    >
-
-    <!-- OPEN GRAPH -->
-    <meta property="og:type" content="website">
-
-    <meta
-        property="og:title"
-        content="Artigos | Rodrigo A. Paiva - Perito Judicial"
-    >
-
-    <meta
-        property="og:description"
-        content="Conteúdo técnico sobre perícia digital, computação forense, cadeia de custódia e segurança cibernética."
-    >
-
-    <meta
-        property="og:url"
-        content="https://rodrigoperito.vercel.app/artigos.html"
-    >
-
-    <meta
-        property="og:image"
-        content="https://rodrigoperito.vercel.app/img/preview.webp"
-    >
-
-    <meta property="og:image:alt" content="Rodrigo A. Paiva - Perito Judicial em Computação Forense">
-
-    <meta property="og:locale" content="pt_BR">
-
-    <!-- TWITTER / X -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <meta
-        name="twitter:title"
-        content="Artigos | Rodrigo A. Paiva - Perito Judicial"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Perícia digital, computação forense, cadeia de custódia e segurança cibernética."
-    >
-
-    <meta
-        name="twitter:image"
-        content="https://rodrigoperito.vercel.app/img/preview.webp"
-    >
-
-    <meta
-        name="twitter:image:alt"
-        content="Rodrigo A. Paiva - Perito Judicial em Computação Forense"
-    >
-
-    <!-- PERFORMANCE -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        rel="preconnect"
-        href="https://cdnjs.cloudflare.com"
-    >
-
-    <!-- FONTE -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- ICONS -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    >
-
-    <!-- SWIPER -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    >
-
-    <!-- CSS PRINCIPAL -->
-    <link
-        rel="stylesheet"
-        href="/style.css"
-    >
-
-    <!-- FAVICON -->
-    <link
-        rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size='75'%3E⚖%3C/text%3E%3C/svg%3E"
-    >
-
-    <!-- THEME COLOR -->
-    <meta
-        name="theme-color"
-        content="#0a0a0a"
-    >
-
-    <!-- =====================================================
+<meta charset="utf-8"/>
+<!-- RESPONSIVO -->
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- SEO PRINCIPAL -->
+<title>Artigos | Rodrigo A. Paiva - Perito Judicial em Computação Forense</title>
+<meta content="Artigos técnicos de Rodrigo A. Paiva sobre perícia digital, computação forense, cadeia de custódia, evidências digitais e segurança cibernética." name="description"/>
+<meta content="Rodrigo A. Paiva" name="author"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- CANONICAL -->
+<link href="https://rodrigoperito.vercel.app/artigos.html" rel="canonical"/>
+<!-- OPEN GRAPH -->
+<meta content="website" property="og:type"/>
+<meta content="Artigos | Rodrigo A. Paiva - Perito Judicial" property="og:title"/>
+<meta content="Conteúdo técnico sobre perícia digital, computação forense, cadeia de custódia e segurança cibernética." property="og:description"/>
+<meta content="https://rodrigoperito.vercel.app/artigos.html" property="og:url"/>
+<meta content="https://rodrigoperito.vercel.app/img/preview.webp" property="og:image"/>
+<meta content="Rodrigo A. Paiva - Perito Judicial em Computação Forense" property="og:image:alt"/>
+<meta content="pt_BR" property="og:locale"/>
+<!-- TWITTER / X -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Artigos | Rodrigo A. Paiva - Perito Judicial" name="twitter:title"/>
+<meta content="Perícia digital, computação forense, cadeia de custódia e segurança cibernética." name="twitter:description"/>
+<meta content="https://rodrigoperito.vercel.app/img/preview.webp" name="twitter:image"/>
+<meta content="Rodrigo A. Paiva - Perito Judicial em Computação Forense" name="twitter:image:alt"/>
+<!-- PERFORMANCE -->
+<link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+<link href="//fonts.gstatic.com" rel="dns-prefetch"/>
+<link href="//cdnjs.cloudflare.com" rel="dns-prefetch"/>
+<link href="//cdn.jsdelivr.net" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<!-- FONTE -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- ICONS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<!-- SWIPER -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<!-- CSS PRINCIPAL -->
+<link href="/style.css" rel="stylesheet"/>
+<!-- FAVICON -->
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size='75'%3E⚖%3C/text%3E%3C/svg%3E" rel="icon"/>
+<!-- THEME COLOR -->
+<meta content="#0a0a0a" name="theme-color"/>
+<!-- =====================================================
          STRUCTURED DATA
          ===================================================== -->
-
-    <!-- WEB PAGE -->
-    <script type="application/ld+json">
+<!-- WEB PAGE -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -163,9 +72,8 @@
         }
     }
     </script>
-
-    <!-- BREADCRUMB -->
-    <script type="application/ld+json">
+<!-- BREADCRUMB -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -185,9 +93,8 @@
         ]
     }
     </script>
-
-    <!-- ITEM LIST -->
-    <script type="application/ld+json">
+<!-- ITEM LIST -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ItemList",
@@ -263,923 +170,404 @@
         ]
     }
     </script>
-
 </head>
-
 <body>
-
-    <!-- MARCA D'ÁGUA -->
-    <div class="watermark" aria-hidden="true">
+<!-- MARCA D'ÁGUA -->
+<div aria-hidden="true" class="watermark">
         VERITAS IN DATIS
     </div>
-
-    <!-- =====================================================
+<!-- =====================================================
          NAVEGAÇÃO
          ===================================================== -->
-
-    <nav class="nav" aria-label="Navegação principal">
-
-        <div class="container nav-container">
-
-          <a href="index.html" class="nav-logo">RODRIGO Perito Judicial em Computação Forense</a>
-               
-
-            <button
-                class="nav-toggle"
-                aria-label="Abrir menu"
-                aria-controls="navLinks"
-                aria-expanded="false"
-                onclick="toggleMenu()"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul class="nav-links"
-                id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/sobre.html">Sobre</a></li>
-                <li><a href="/servicos.html">Serviços</a></li>
-                <li><a href="/contato.html">Contato</a></li>
-                <li><a href="/artigos.html" class="active">Artigos</a></li>
-            </ul>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =====================================================
+<nav aria-label="Navegação principal" class="nav">
+<div class="container nav-container">
+<a class="nav-logo" href="index.html">RODRIGO A. PAIVA</a>
+<button aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu" class="nav-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="contato.html">Contato</a></li><li><a class="active" href="artigos.html">Artigos</a></li></ul>
+</div>
+</nav>
+<!-- =====================================================
          HERO
          ===================================================== -->
-
-    <header class="hero">
-
-        <div class="container hero-inner">
-
-            <div class="hero-copy">
-
-                <h1>
+<header class="hero">
+<div class="container hero-inner">
+<div class="hero-copy">
+<h1>
                     Artigos sobre Perícia Digital e Computação Forense
                 </h1>
-
-                <h2>
+<h2>
                     Conteúdo Técnico • Perícia Digital • Segurança Cibernética
                 </h2>
-
-                <p class="hero-tagline">
+<p class="hero-tagline">
                     Artigos especializados sobre computação forense,
                     metodologia pericial e melhores práticas em investigação
                     digital, com fundamentação técnica e jurídica.
                 </p>
-
-            </div>
-
-            <div class="hero-photo">
-
-                <img
-                    src="/img/rodrigo.webp"
-                    alt="Rodrigo A. Paiva - Perito Judicial em Computação Forense"
-                    class="profile-image"
-                    width="600"
-                    height="600"
-                    loading="eager"
-                    decoding="async"
-                >
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
+</div>
+<div class="hero-photo">
+<img alt="Rodrigo A. Paiva - Perito Judicial em Computação Forense" class="profile-image" decoding="async" height="600" loading="eager" src="/img/rodrigo.webp" width="600"/>
+</div>
+</div>
+</header>
+<!-- =====================================================
          CONTEÚDO PRINCIPAL
          ===================================================== -->
-
-    <main>
-
-        <section
-            class="articles-section"
-            aria-labelledby="articles-title"
-        >
-
-            <div class="container">
-
-                <h2
-                    class="articles-title"
-                    id="articles-title"
-                >
+<main>
+<section aria-labelledby="articles-title" class="articles-section">
+<div class="container">
+<h2 class="articles-title" id="articles-title">
                     Artigos Técnicos de Perícia Digital
                 </h2>
-
-
-                <!-- =================================================
+<!-- =================================================
                      BUSCA E FILTROS
                      ================================================= -->
-
-                <div class="search-filter-wrapper">
-
-                    <div class="search-box">
-
-                        <i
-                            class="fas fa-search"
-                            aria-hidden="true"
-                        ></i>
-
-                        <label
-                            for="searchInput"
-                            class="sr-only"
-                        >
+<div class="search-filter-wrapper">
+<div class="search-box">
+<i aria-hidden="true" class="fas fa-search"></i>
+<label class="sr-only" for="searchInput">
                             Pesquisar artigos
                         </label>
-
-                        <input
-                            type="search"
-                            id="searchInput"
-                            placeholder="Pesquisar por assunto (ex: hash, logs, fraude)..."
-                            autocomplete="off"
-                            onkeyup="filterArticles()"
-                        >
-
-                    </div>
-
-
-                    <div
-                        class="filter-container"
-                        aria-label="Filtrar artigos por categoria"
-                    >
-
-                        <button
-                            type="button"
-                            class="filter-btn active"
-                            data-category="todos"
-                            onclick="setCategory('todos', this)"
-                        >
+<input autocomplete="off" id="searchInput" onkeyup="filterArticles()" placeholder="Pesquisar por assunto (ex: hash, logs, fraude)..." type="search"/>
+</div>
+<div aria-label="Filtrar artigos por categoria" class="filter-container">
+<button class="filter-btn active" data-category="todos" onclick="setCategory('todos', this)" type="button">
                             Todos
                         </button>
-
-                        <button
-                            type="button"
-                            class="filter-btn"
-                            data-category="custodia"
-                            onclick="setCategory('custodia', this)"
-                        >
+<button class="filter-btn" data-category="custodia" onclick="setCategory('custodia', this)" type="button">
                             Cadeia de Custódia
                         </button>
-
-                        <button
-                            type="button"
-                            class="filter-btn"
-                            data-category="logs"
-                            onclick="setCategory('logs', this)"
-                        >
+<button class="filter-btn" data-category="logs" onclick="setCategory('logs', this)" type="button">
                             Análise de Logs
                         </button>
-
-                        <button
-                            type="button"
-                            class="filter-btn"
-                            data-category="fraudes"
-                            onclick="setCategory('fraudes', this)"
-                        >
+<button class="filter-btn" data-category="fraudes" onclick="setCategory('fraudes', this)" type="button">
                             Fraudes &amp; Invasões
                         </button>
-
-                        <button
-                            type="button"
-                            class="filter-btn"
-                            data-category="laudos"
-                            onclick="setCategory('laudos', this)"
-                        >
+<button class="filter-btn" data-category="laudos" onclick="setCategory('laudos', this)" type="button">
                             Legislação &amp; Laudos
                         </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
+</div>
+</div>
+<!-- =================================================
                      GRADE DE ARTIGOS
                      ================================================= -->
-
-                <div
-                    class="articles-grid"
-                    id="articlesGrid"
-                >
-
-                    <!-- ESTADO SEM RESULTADOS -->
-                    <div
-                        class="no-results"
-                        id="noResults"
-                        hidden
-                        aria-live="polite"
-                    >
-
-                        <i
-                            class="fas fa-exclamation-circle"
-                            aria-hidden="true"
-                        ></i>
-
-                        <p>
+<div class="articles-grid" id="articlesGrid">
+<!-- ESTADO SEM RESULTADOS -->
+<div aria-live="polite" class="no-results" hidden="" id="noResults">
+<i aria-hidden="true" class="fas fa-exclamation-circle"></i>
+<p>
                             Nenhum artigo encontrado para a sua busca.
                         </p>
-
-                    </div>
-
-
-                    <!-- =================================================
+</div>
+<!-- =================================================
                          ARTIGO 1
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="fraudes logs"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Acesso_Não_Autorizado.webp"
-                                alt="Identificação de acesso não autorizado em computação forense"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="fraudes logs">
+<div class="article-image">
+<img alt="Identificação de acesso não autorizado em computação forense" decoding="async" height="450" loading="lazy" src="/img/Acesso_Não_Autorizado.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Como Identificar Acesso Não Autorizado com Computação Forense
                             </h3>
-
-                            <p>
+<p>
                                 Investigação de invasões com análise de logs,
                                 timeline forense e preservação da cadeia de custódia.
                                 Inclui técnicas de análise de memória RAM e disco
                                 com hashing SHA-256.
                             </p>
-
-                            <a
-                                href="/artigos/acesso-nao-autorizado.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/acesso-nao-autorizado.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 2
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="logs"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/analise_logs.webp"
-                                alt="Análise forense de logs em perícia digital"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="logs">
+<div class="article-image">
+<img alt="Análise forense de logs em perícia digital" decoding="async" height="450" loading="lazy" src="/img/analise_logs.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Como Funciona a Análise de Logs na Perícia Digital
                             </h3>
-
-                            <p>
+<p>
                                 Transformação de registros técnicos em provas digitais
                                 válidas. Técnicas de normalização, correlação de eventos
                                 via SIEM e construção de timeline forense com Plaso.
                             </p>
-
-                            <a
-                                href="/artigos/analise-logs.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/analise-logs.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 3
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="custodia"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Cadeia_de_Custódia_Digital.webp"
-                                alt="Cadeia de custódia digital e integridade da prova técnica"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="custodia">
+<div class="article-image">
+<img alt="Cadeia de custódia digital e integridade da prova técnica" decoding="async" height="450" loading="lazy" src="/img/Cadeia_de_Custódia_Digital.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Cadeia de Custódia Digital: Garantia de Integridade da Prova Técnica
                             </h3>
-
-                            <p>
+<p>
                                 Etapas completas da cadeia de custódia (ISO/IEC 27037):
                                 identificação, coleta com write-blocker, transporte
                                 documentado, análise em cópia forense e registro
                                 de hashes SHA-256.
                             </p>
-
-                            <a
-                                href="/artigos/cadeia-custodia.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/cadeia-custodia.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 4
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="custodia laudos"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Erros_em_Evidências_Digitais.webp"
-                                alt="Erros na manipulação de evidências digitais"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="custodia laudos">
+<div class="article-image">
+<img alt="Erros na manipulação de evidências digitais" decoding="async" height="450" loading="lazy" src="/img/Erros_em_Evidências_Digitais.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Erros Comuns que Comprometem Evidências Digitais
                             </h3>
-
-                            <p>
+<p>
                                 Falhas críticas na manipulação de evidências:
                                 acesso sem registro, falta de isolamento,
                                 ausência de write-blocker e suas consequências
                                 jurídicas.
                             </p>
-
-                            <a
-                                href="/artigos/erros-provas-digitais.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/erros-provas-digitais.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 5
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="custodia laudos"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/img_4606.webp"
-                                alt="Valor jurídico da evidência digital e cadeia de custódia"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="custodia laudos">
+<div class="article-image">
+<img alt="Valor jurídico da evidência digital e cadeia de custódia" decoding="async" height="450" loading="lazy" src="/img/img_4606.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 O Valor Jurídico da Evidência Digital e a Cadeia de Custódia
                             </h3>
-
-                            <p>
+<p>
                                 Autenticidade, integridade e rastreabilidade:
                                 os três pilares que transformam dados digitais
                                 em provas válidas, com base na legislação aplicável.
                             </p>
-
-                            <a
-                                href="/artigos/evidencia-digital-custodia.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/evidencia-digital-custodia.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 6
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="fraudes"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/img_4608.webp"
-                                alt="Perícia digital em fraudes e crimes cibernéticos"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="fraudes">
+<div class="article-image">
+<img alt="Perícia digital em fraudes e crimes cibernéticos" decoding="async" height="450" loading="lazy" src="/img/img_4608.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Perícia Digital em Casos de Fraude e Crimes Cibernéticos
                             </h3>
-
-                            <p>
+<p>
                                 Metodologia para identificação de autoria e materialidade
                                 em delitos como phishing, ransomware, exfiltração de dados
                                 e fraudes financeiras digitais.
                             </p>
-
-                            <a
-                                href="/artigos/fraude-crimes-ciberneticos.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/fraude-crimes-ciberneticos.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 7
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="fraudes"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Fraudes_Digitais.webp"
-                                alt="Identificação de manipulações em fraudes digitais"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="fraudes">
+<div class="article-image">
+<img alt="Identificação de manipulações em fraudes digitais" decoding="async" height="450" loading="lazy" src="/img/Fraudes_Digitais.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Fraudes Digitais: Como a Perícia Técnica Identifica Manipulações
                             </h3>
-
-                            <p>
+<p>
                                 Técnicas de detecção de falsificações: análise de
                                 metadados EXIF e XMP, verificação de integridade
                                 por hash SHA-256, timestamps e tipografia forense.
                             </p>
-
-                            <a
-                                href="/artigos/fraudes-digitais.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/fraudes-digitais.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 8
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="logs"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/img_4607.webp"
-                                alt="Reconstrução de eventos por meio de análise forense de logs"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="logs">
+<div class="article-image">
+<img alt="Reconstrução de eventos por meio de análise forense de logs" decoding="async" height="450" loading="lazy" src="/img/img_4607.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Análise Forense de Logs: Reconstrução Técnica de Eventos
                             </h3>
-
-                            <p>
+<p>
                                 Metodologia avançada para construção de timeline forense,
                                 correlação de eventos entre múltiplas fontes e identificação
                                 de movimentação lateral.
                             </p>
-
-                            <a
-                                href="/artigos/logs-forense.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/logs-forense.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 9
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="laudos custodia"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Recuperação_de_Dados.webp"
-                                alt="Recuperação de dados apagados em perícia digital"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="laudos custodia">
+<div class="article-image">
+<img alt="Recuperação de dados apagados em perícia digital" decoding="async" height="450" loading="lazy" src="/img/Recuperação_de_Dados.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Recuperação de Dados Apagados: Limites Técnicos e Validade Jurídica
                             </h3>
-
-                            <p>
+<p>
                                 Requisitos para admissibilidade judicial de dados recuperados:
                                 cadeia de custódia, hashes SHA-256, metodologia transparente
                                 e documentação das limitações técnicas.
                             </p>
-
-                            <a
-                                href="/artigos/recuperacao-dados.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/recuperacao-dados.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 10
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="laudos"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/pericia_em_processos.webp"
-                                alt="Perícia digital aplicada ao processo judicial"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="laudos">
+<div class="article-image">
+<img alt="Perícia digital aplicada ao processo judicial" decoding="async" height="450" loading="lazy" src="/img/pericia_em_processos.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 Perícia Digital: Como Funciona e Qual Seu Valor no Processo Judicial
                             </h3>
-
-                            <p>
+<p>
                                 O papel do perito judicial, as etapas da perícia,
                                 identificação, análise, timeline, elaboração do laudo
                                 e valor probatório da prova técnica.
                             </p>
-
-                            <a
-                                href="/artigos/pericia-digital.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/pericia-digital.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+<!-- =================================================
                          ARTIGO 11
                          ================================================= -->
-
-                    <article
-                        class="article-card"
-                        data-category="laudos"
-                    >
-
-                        <div class="article-image">
-
-                            <img
-                                src="/img/Laudo_Pericial_Digital.webp"
-                                alt="Validade do laudo pericial digital em juízo"
-                                width="800"
-                                height="450"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <h3>
+<article class="article-card" data-category="laudos">
+<div class="article-image">
+<img alt="Validade do laudo pericial digital em juízo" decoding="async" height="450" loading="lazy" src="/img/Laudo_Pericial_Digital.webp" width="800"/>
+</div>
+<div class="article-content">
+<h3>
                                 O Que Torna um Laudo Pericial Digital Válido em Juízo
                             </h3>
-
-                            <p>
+<p>
                                 Requisitos essenciais para um laudo pericial digital:
                                 qualificação do perito, metodologia científica,
                                 cadeia de custódia e fundamentação técnica.
                             </p>
-
-                            <a
-                                href="/artigos/validade-laudo.html"
-                                class="article-link"
-                            >
+<a class="article-link" href="/artigos/validade-laudo.html">
                                 Ler mais
-                                <i
-                                    class="fas fa-arrow-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
+                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- =====================================================
          FOOTER
          ===================================================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-            <h2>
-                <i
-                    class="fas fa-balance-scale"
-                    aria-hidden="true"
-                ></i>
+<footer class="footer">
+<div class="container footer-content">
+<h2>
+<i aria-hidden="true" class="fas fa-balance-scale"></i>
                 Contato Profissional
             </h2>
-
-            <p class="footer-description">
+<p class="footer-description">
                 Atuação especializada em perícia digital,
                 com suporte técnico a processos judiciais e extrajudiciais.
             </p>
-
-
-            <div class="footer-actions">
-
-                <a
-                    href="mailto:rodrigo.cyberforense@gmail.com"
-                    class="button"
-                >
-                    <i
-                        class="fas fa-envelope"
-                        aria-hidden="true"
-                    ></i>
+<div class="footer-actions">
+<a class="button" href="mailto:rodrigo.cyberforense@gmail.com">
+<i aria-hidden="true" class="fas fa-envelope"></i>
                     E-mail
                 </a>
-
-
-                <a
-                    href="https://wa.me/5511991001952?text=Ol%C3%A1%20Rodrigo.%20Gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20de%20per%C3%ADcia%20digital%20para%20um%20caso%20que%20estou%20analisando.%20Poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20processo%3F"
-                    class="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <i
-                        class="fab fa-whatsapp"
-                        aria-hidden="true"
-                    ></i>
+<a class="button" href="https://wa.me/5511991001952?text=Ol%C3%A1%20Rodrigo.%20Gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20de%20per%C3%ADcia%20digital%20para%20um%20caso%20que%20estou%20analisando.%20Poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20processo%3F" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fab fa-whatsapp"></i>
                     WhatsApp
                 </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/rodrigo-a-de-paiva-33aa613b5"
-                    class="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <i
-                        class="fab fa-linkedin"
-                        aria-hidden="true"
-                    ></i>
+<a class="button" href="https://www.linkedin.com/in/rodrigo-a-de-paiva-33aa613b5" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fab fa-linkedin"></i>
                     LinkedIn
                 </a>
-
-
-                <a
-                    href="https://rodrigo-cyberforense97749760.jusbrasil.com.br/"
-                    class="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <i
-                        class="fas fa-gavel"
-                        aria-hidden="true"
-                    ></i>
+<a class="button" href="https://rodrigo-cyberforense97749760.jusbrasil.com.br/" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fas fa-gavel"></i>
                     Jusbrasil
                 </a>
-
-            </div>
-
-
-            <div class="footer-divider"></div>
-
-
-            <p class="footer-note">
+</div>
+<div class="footer-divider"></div>
+<p class="footer-note">
                 Confidencialidade • Cadeia de Custódia • Integridade da Evidência •
                 LGPD • CPC • ISO/IEC 27037
             </p>
-
-
-            <div class="footer-legal">
-
-                <span>
+<div class="footer-legal">
+<span>
                     Perito Judicial • TJSP • Computação Forense • São Paulo / Brasil
                 </span>
-
-                <span class="footer-copy">
+<span class="footer-copy">
                     © 2026 Rodrigo A. Paiva
                 </span>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =====================================================
+</div>
+</div>
+</footer>
+<!-- =====================================================
          SCRIPTS
          ===================================================== -->
-
-    <!-- SWIPER -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-        defer
-    ></script>
-
-    <!-- SCRIPT PRINCIPAL -->
-    <script
-        src="/script.js"
-        defer
-    ></script>
-
-
-    <!-- =====================================================
+<!-- SWIPER -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- SCRIPT PRINCIPAL -->
+<script defer="" src="/script.js"></script>
+<!-- =====================================================
          BUSCA E FILTRO DOS ARTIGOS
          ===================================================== -->
-
-    <script>
+<script>
 
         let currentCategory = 'todos';
 
@@ -1275,43 +663,18 @@
         }
 
     </script>
-
-
-    <!-- =====================================================
+<!-- =====================================================
          WHATSAPP FIXO
          ===================================================== -->
-
-    <a
-        href="https://wa.me/5511991001952?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20per%C3%ADcia%20digital"
-        class="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contato via WhatsApp"
-    >
-        <i
-            class="fab fa-whatsapp"
-            aria-hidden="true"
-        ></i>
-    </a>
-
-
-    <!-- =====================================================
+<a aria-label="Contato via WhatsApp" class="whatsapp-float" href="https://wa.me/5511991001952?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20per%C3%ADcia%20digital" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fab fa-whatsapp"></i>
+</a>
+<!-- =====================================================
          VOLTAR AO TOPO
          ===================================================== -->
-
-    <a
-        href="#"
-        id="backToTop"
-        class="back-to-top"
-        aria-label="Voltar ao topo"
-    >
-        <i
-            class="fas fa-arrow-up"
-            aria-hidden="true"
-        ></i>
-    </a>
-
+<a aria-label="Voltar ao topo" class="back-to-top" href="#" id="backToTop">
+<i aria-hidden="true" class="fas fa-arrow-up"></i>
+</a>
 </body>
-
 </html>
 ```

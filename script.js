@@ -1,3 +1,14 @@
+function toggleMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (!navToggle || !navLinks) return;
+
+    const isOpen = navLinks.classList.toggle('active');
+    navToggle.classList.toggle('active', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================
@@ -7,9 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelector('.nav-links');
 
     if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
+
+        navToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleMenu();
         });
 
         // Close menu when clicking on a link
@@ -17,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             link.addEventListener('click', function() {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -25,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
