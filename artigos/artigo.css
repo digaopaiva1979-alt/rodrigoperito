@@ -91,7 +91,7 @@ select {
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
-    background: none !important;
+    background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -103,7 +103,19 @@ select {
     flex-shrink: 0;
     line-height: 1;
     vertical-align: middle;
-    transition: var(--transition-fast);
+    transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover,
+.nav-logo:focus,
+.nav-logo:active,
+.nav-logo:focus-visible {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: inherit;
+    opacity: 0.96;
 }
 
 .logo-img {
@@ -115,26 +127,22 @@ select {
     object-fit: contain;
     position: relative;
     z-index: 2;
-    background: none !important;
+    background: transparent !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     border: none !important;
-    filter: none;
-    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 8px rgba(0, 224, 255, 0.14));
+    mix-blend-mode: normal;
 }
 
 .logo-text {
     color: inherit;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.06rem;
     text-transform: uppercase;
     line-height: 1;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     white-space: nowrap;
-}
-
-.nav-logo:hover {
-    color: var(--primary);
 }
 
 .nav-links {
