@@ -54,19 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     const el = document.querySelector(".typewriter");
 
-    const texts = [
-        "Perito Judicial com atuação no TJSP e suporte técnico em litígios complexos",
-        "Especialista em Computação Forense e reconstrução de evidências digitais",
-        "Atuação avançada em Segurança Cibernética e resposta a incidentes",
-        "Análise de Cadeia de Custódia com conformidade legal e integridade probatória",
-        "Investigação de logs, correlação de eventos e rastreabilidade digital",
-        "Produção de laudos técnicos com validade jurídica e rigor metodológico",
-        "Atuação em perícia digital aplicada a fraudes, vazamentos e crimes cibernéticos",
-        "Pesquisa aplicada em tecnologias emergentes e computação quântica",
-        "Análise forense em dispositivos, redes e ambientes corporativos",
-        "Suporte técnico para advogados em estratégias probatórias digitais"
-    ];
+        
 
+    const texts = [
+    "Perito Judicial e Assistente Técnico Digital",
+    "Especialista em Computação Forense",
+    "Investigação de Fraudes e Crimes Cibernéticos",
+    "Resposta a Incidentes e Análise de Logs",
+    "Elaboração de Laudos e Pareceres Técnicos",
+    "Preservação de Cadeia de Custódia Digital",
+    "Suporte Técnico em Litígios Complexos"
+];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
